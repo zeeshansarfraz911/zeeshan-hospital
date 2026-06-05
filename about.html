@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Zeeshan Hospital</title>
+  <meta name="description" content="Learn about Zeeshan Hospital's mission to transform healthcare through technology. Meet our team and discover our values.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/business.css">
+  <style>
+    :root { --primary: #0d9488; --primary-dark: #0f766e; --primary-light: #14b8a6; --primary-lighter: #5eead4; --primary-subtle: #ccfbf1; --primary-bg: #f0fdfa; --secondary: #0284c7; --accent: #f59e0b; }
+    .scroll-section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .scroll-section.visible { opacity: 1; transform: translateY(0); }
+    .nav-scrolled { background: rgba(255,255,255,0.95) !important; backdrop-filter: blur(12px) !important; box-shadow: 0 1px 8px rgba(0,0,0,0.08) !important; }
+    .about-hero { padding: 140px 0 60px; background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 40%, #e0f2fe 100%); position: relative; overflow: hidden; text-align: center; }
+    .about-hero h1 { font-size: 2.8rem; font-weight: 800; color: var(--text); margin-bottom: 12px; }
+    .about-hero p { font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+    .about-hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(13,148,136,0.08) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .story-section { padding: 80px 0; background: #fff; }
+    .story-section .container { max-width: 800px; text-align: center; }
+    .story-section h2 { font-size: 2rem; font-weight: 800; margin-bottom: 20px; }
+    .story-section p { font-size: 1.05rem; color: var(--text-light); line-height: 1.8; }
+    .mission-vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; }
+    .mission-vision-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 28px; text-align: center; transition: all 0.3s ease; }
+    .mission-vision-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); border-color: var(--primary-light); }
+    .mission-vision-card .mv-icon { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 1.4rem; }
+    .mission-vision-card:nth-child(1) .mv-icon { background: #d1fae5; color: #059669; }
+    .mission-vision-card:nth-child(2) .mv-icon { background: #dbeafe; color: #2563eb; }
+    .mission-vision-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .mission-vision-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+    .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    @media (max-width: 992px) { .values-grid { grid-template-columns: repeat(2, 1fr); } .mission-vision-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .about-hero h1 { font-size: 2rem; } .values-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <div class="logo-icon">ZH</div>
+        Zeeshan Hospital
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html" class="active">About</a>
+        <a href="index.html#contact">Contact</a>
+        <div class="dropdown" style="display:inline-block;">
+          <button class="btn btn-sm btn-outline" style="font-size:0.8rem;padding:6px 12px;" onclick="this.nextElementSibling.classList.toggle('active')">Portals &#9662;</button>
+          <div class="dropdown-menu" style="min-width:160px;">
+            <a href="#" onclick="showAuth('patient')">&#129485; Patient Portal</a>
+            <a href="#" onclick="showAuth('doctor')">&#128137; Doctor Portal</a>
+            <a href="#" onclick="showAuth('pharmacy')">&#127974; Pharmacy Portal</a>
+            <a href="#" onclick="showAuth('lab')">&#128300; Lab Portal</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" onclick="adminLogin()">&#9881; Admin Access</a>
+          </div>
+        </div>
+        <a href="#" onclick="openDemoModal()" class="btn btn-sm btn-outline" style="font-size:0.8rem;padding:6px 16px;">Demo</a>
+        <a href="#" onclick="showAuth('patient')" class="btn btn-sm btn-primary" style="font-size:0.8rem;padding:6px 16px;">Get Started</a>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="about-hero scroll-section">
+    <div class="container">
+      <h1>Transforming Healthcare Through Technology</h1>
+      <p>We believe quality healthcare should be accessible to everyone. Technology is how we make it happen.</p>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section class="story-section scroll-section">
+    <div class="container">
+      <h2>Our Story</h2>
+      <p>Zeeshan Hospital was founded with a simple mission: make quality healthcare accessible to everyone. We believe technology should break down barriers, not create them. What started as a vision to connect patients with doctors digitally has grown into a comprehensive healthcare ecosystem serving thousands of patients, doctors, pharmacies, and labs across the country. Today, we&#39;re proud to be the platform that powers modern healthcare delivery.</p>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="section scroll-section" style="background:var(--primary-bg);">
+    <div class="container">
+      <div class="section-title-wrapper text-center">
+        <h2 class="section-title">Our Mission &amp; Vision</h2>
+        <p class="section-subtitle text-center">Driven by purpose, guided by values.</p>
+      </div>
+      <div class="mission-vision-grid">
+        <div class="mission-vision-card">
+          <div class="mv-icon">&#127919;</div>
+          <h3>Our Mission</h3>
+          <p>To empower healthcare providers with technology that simplifies operations, improves patient outcomes, and makes quality healthcare accessible to every individual, regardless of their location or background.</p>
+        </div>
+        <div class="mission-vision-card">
+          <div class="mv-icon">&#128752;</div>
+          <h3>Our Vision</h3>
+          <p>To become the leading digital healthcare ecosystem in the region, connecting every patient, doctor, pharmacy, and lab in a seamless, intelligent network that delivers better health outcomes for all.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section scroll-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-icon">&#128137;</span>
+          <div class="stat-number">50<span class="suffix">+</span></div>
+          <div class="stat-label">Expert Doctors</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon">&#129485;</span>
+          <div class="stat-number">10K<span class="suffix">+</span></div>
+          <div class="stat-label">Happy Patients</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon">&#9729;</span>
+          <div class="stat-number">99.9<span class="suffix">%</span></div>
+          <div class="stat-label">Platform Uptime</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon">&#128300;</span>
+          <div class="stat-number">15<span class="suffix">+</span></div>
+          <div class="stat-label">Medical Specialties</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section scroll-section">
+    <div class="container">
+      <div class="team-header">
+        <h2 class="section-title">Meet Our Leadership Team</h2>
+        <p class="section-desc">Passionate people committed to transforming healthcare.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo">&#128137;</div>
+          <div class="team-name">Dr. Usman Ali</div>
+          <div class="team-role">CEO &amp; Founder</div>
+          <div class="team-bio">Cardiologist with 15+ years of clinical experience. Passionate about using technology to improve patient care and access.</div>
+          <div class="team-social">
+            <a href="#" class="team-social-link">&#120143;</a>
+            <a href="#" class="team-social-link">&#120156;</a>
+            <a href="#" class="team-social-link">&#120157;</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">&#128105;</div>
+          <div class="team-name">Sara Khan</div>
+          <div class="team-role">Chief Operating Officer</div>
+          <div class="team-bio">Healthcare administration expert with a decade of experience managing large-scale hospital operations and digital transformation.</div>
+          <div class="team-social">
+            <a href="#" class="team-social-link">&#120143;</a>
+            <a href="#" class="team-social-link">&#120156;</a>
+            <a href="#" class="team-social-link">&#120157;</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">&#128187;</div>
+          <div class="team-name">Ahmed Raza</div>
+          <div class="team-role">Chief Technology Officer</div>
+          <div class="team-bio">Software engineer and architect with expertise in building scalable healthcare platforms, AI-driven analytics, and secure cloud infrastructure.</div>
+          <div class="team-social">
+            <a href="#" class="team-social-link">&#120143;</a>
+            <a href="#" class="team-social-link">&#120156;</a>
+            <a href="#" class="team-social-link">&#120157;</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">&#128105;</div>
+          <div class="team-name">Fatima Zafar</div>
+          <div class="team-role">Head of Medical Services</div>
+          <div class="team-bio">Pediatrician dedicated to ensuring clinical excellence across the platform. Leads quality assurance and medical content development.</div>
+          <div class="team-social">
+            <a href="#" class="team-social-link">&#120143;</a>
+            <a href="#" class="team-social-link">&#120156;</a>
+            <a href="#" class="team-social-link">&#120157;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section scroll-section" style="background:#fff;">
+    <div class="container">
+      <div class="section-title-wrapper text-center">
+        <h2 class="section-title">Our Core Values</h2>
+        <p class="section-subtitle text-center">The principles that guide everything we do.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">&#128640;</div>
+          <h4>Innovation</h4>
+          <p>We continuously push the boundaries of what's possible in healthcare technology, always looking for better ways to serve our community.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">&#128151;</div>
+          <h4>Compassion</h4>
+          <p>Every line of code we write is driven by empathy for patients and providers. We put people before technology.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">&#128737;</div>
+          <h4>Integrity</h4>
+          <p>We hold ourselves to the highest standards of data security, privacy, and ethical conduct. Trust is our most valuable asset.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">&#127942;</div>
+          <h4>Excellence</h4>
+          <p>We strive for excellence in every aspect of our platform — from user experience to reliability to customer support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section scroll-section">
+    <div class="cta-floating cta-floating-1"></div>
+    <div class="cta-floating cta-floating-2"></div>
+    <div class="cta-floating cta-floating-3"></div>
+    <div class="cta-content">
+      <span class="cta-label">Join Our Mission</span>
+      <h2 class="cta-title">Join us in transforming healthcare</h2>
+      <p class="cta-desc">Be part of the healthcare revolution. Whether you're a doctor, patient, or partner, there's a place for you at Zeeshan Hospital.</p>
+      <div class="cta-buttons">
+        <a href="#" onclick="showAuth('patient')" class="cta-btn-primary">Get Started Today <span class="arrow">&#8594;</span></a>
+        <a href="#" onclick="openDemoModal()" class="cta-btn-secondary">Book a Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><div class="logo-icon">ZH</div> Zeeshan Hospital</div>
+          <p>Complete digital healthcare ecosystem connecting patients, doctors, pharmacies, and testing facilities. Your health, our mission.</p>
+          <div style="display:flex;gap:12px;margin-top:16px;">
+            <a href="#" style="width:36px;height:36px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;color:#94a3b8;">&#120143;</a>
+            <a href="#" style="width:36px;height:36px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;color:#94a3b8;">&#120156;</a>
+            <a href="#" style="width:36px;height:36px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;color:#94a3b8;">&#120157;</a>
+            <a href="#" style="width:36px;height:36px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;color:#94a3b8;">&#120146;</a>
+          </div>
+        </div>
+        <div><h4>Product</h4><div class="footer-links"><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="#">Integrations</a><a href="#">API</a></div></div>
+        <div><h4>Company</h4><div class="footer-links"><a href="about.html">About</a><a href="#">Blog</a><a href="#">Careers</a><a href="#">Press</a></div></div>
+        <div><h4>Support</h4><div class="footer-links"><a href="#">Documentation</a><a href="index.html#contact">Contact</a><a href="#">Status</a><a href="#">Security</a></div></div>
+        <div><h4>Legal</h4><div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">HIPAA</a><a href="#">GDPR</a></div></div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Zeeshan Hospital. All rights reserved. Made with &#10084;&#65039; for better healthcare.</span>
+        <div class="footer-bottom-links">
+          <a href="#" onclick="adminLogin()" style="font-size:0.75rem;">Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AUTH MODAL -->
+  <div class="modal" id="authModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="authTitle">Login</h3>
+        <button class="modal-close" onclick="closeModal('authModal')">&times;</button>
+      </div>
+      <div id="authHint" style="text-align:center;font-size:0.85rem;color:var(--text-light);margin-bottom:16px;padding:8px;background:#f0fdfa;border-radius:6px;">
+        Demo: <strong>ahmed@test.com</strong> / <strong>123</strong>
+      </div>
+      <div id="authBody">
+        <div class="form-group"><label>Email</label><input type="email" id="authEmail" placeholder="Enter your email" autocomplete="off"></div>
+        <div class="form-group"><label>Password</label><input type="password" id="authPass" placeholder="Enter your password" autocomplete="off"></div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="handleLogin()">Sign In</button>
+        <p style="text-align:center;margin-top:12px;font-size:0.85rem;color:var(--text-light);" id="authToggleText">Don't have an account? <a href="#" style="color:var(--primary);font-weight:600;" onclick="showRegister(event)">Register</a></p>
+      </div>
+      <div id="registerBody" style="display:none;">
+        <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Enter your full name"></div>
+        <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="Enter your email"></div>
+        <div class="form-group"><label>Password</label><input type="password" id="regPass" placeholder="Create a password"></div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="handleRegister()">Create Account</button>
+        <p style="text-align:center;margin-top:12px;font-size:0.85rem;color:var(--text-light);">Already have an account? <a href="#" style="color:var(--primary);font-weight:600;" onclick="showLogin(event)">Sign In</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEMO MODAL -->
+  <div class="modal demo-modal" id="demoModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Book a Demo</h3>
+        <button class="modal-close" onclick="closeModal('demoModal')">&times;</button>
+      </div>
+      <p style="font-size:0.88rem;color:#64748b;margin-bottom:20px;">Fill in your details and we'll schedule a personalized demo for your practice.</p>
+      <div class="form-row">
+        <div class="form-group"><label>Full Name</label><input type="text" id="demoName" placeholder="John Doe"></div>
+        <div class="form-group"><label>Email</label><input type="email" id="demoEmail" placeholder="john@practice.com"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Phone</label><input type="tel" id="demoPhone" placeholder="+92 300 1234567"></div>
+        <div class="form-group"><label>Company</label><input type="text" id="demoCompany" placeholder="Your practice name"></div>
+      </div>
+      <div class="form-group"><label>Practice Size</label><select id="demoSize"><option value="">Select size</option><option>1-5 doctors</option><option>6-25 doctors</option><option>26-100 doctors</option><option>100+ doctors</option></select></div>
+      <div style="background:#f8fafc;border-radius:10px;padding:16px;margin-bottom:16px;text-align:center;">
+        <p style="font-size:0.85rem;color:#64748b;margin-bottom:4px;"><strong>Available Time Slots</strong></p>
+        <p style="font-size:0.78rem;color:#94a3b8;">Mon-Fri: 9:00 AM – 6:00 PM PKT</p>
+        <p style="font-size:0.78rem;color:#94a3b8;">Next available: Tomorrow at 10:00 AM</p>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="showToast('Thank you! We will contact you within 24 hours.', 'success');closeModal('demoModal');">Schedule Demo</button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- CHAT WIDGET -->
+  <div class="chat-widget">
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header"><span>&#128172; Zeeshan Hospital Chat</span><button onclick="toggleChat()">&times;</button></div>
+      <div class="chat-body" id="chatBody">
+        <div class="chat-msg bot">&#128075; Hi there! How can we help you today?</div>
+        <div class="chat-options">
+          <button onclick="chatReply('Tell me about pricing')">&#128176; Tell me about pricing</button>
+          <button onclick="chatReply('Book a demo')">&#128197; Book a demo</button>
+          <button onclick="chatReply('How to get started?')">&#128640; How to get started?</button>
+          <button onclick="chatReply('Technical support')">&#128295; Technical support</button>
+        </div>
+      </div>
+    </div>
+    <button class="chat-bubble" id="chatBubble" onclick="toggleChat()">&#128172;</button>
+  </div>
+
+  <!-- COOKIE CONSENT -->
+  <div class="cookie-bar" id="cookieBar">
+    <span>We use cookies to improve your experience. By continuing, you agree to our use of cookies.</span>
+    <div style="display:flex;gap:8px;">
+      <button class="btn btn-sm btn-outline" style="color:white;border-color:#475569;" onclick="hideCookie()">Cookie Settings</button>
+      <button class="btn btn-sm btn-primary" onclick="hideCookie()">Accept All</button>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+  <script src="js/main.js"></script>
+  <script>
+    function adminLogin() {
+      localStorage.setItem('zh_user', JSON.stringify({id:'ADMIN-001', name:'System Admin', email:'admin@zh.com', role:'admin'}));
+      localStorage.setItem('zh_role', 'admin');
+      localStorage.setItem('zh_login_time', Date.now().toString());
+      window.location.href = 'admin.html';
+    }
+
+    // Chat widget
+    function toggleChat() {
+      document.getElementById('chatWindow').classList.toggle('open');
+      document.getElementById('chatBubble').style.display = document.getElementById('chatWindow').classList.contains('open') ? 'none' : 'flex';
+    }
+    function chatReply(msg) {
+      const body = document.getElementById('chatBody');
+      body.innerHTML += '<div class="chat-msg user">' + msg + '</div>';
+      let reply = '';
+      if (msg.includes('pricing')) reply = 'Our plans start at $199/mo. We have Starter, Professional ($499/mo) and Enterprise (custom). Would you like me to book a demo to discuss?';
+      else if (msg.includes('demo')) reply = 'Absolutely! Click the "Get Started" button above or fill out the demo form to schedule a personalized walkthrough.';
+      else if (msg.includes('started')) reply = 'Getting started is easy! Click "Start Free Trial" and create your account. You\'ll get full access for 14 days with no credit card needed.';
+      else if (msg.includes('support')) reply = 'Our support team is available 24/7. You can reach us at support@zeeshanhospital.com or call +92 300 1234567.';
+      else reply = 'Thanks for your message! Our team will get back to you shortly. For immediate help, call +92 300 1234567.';
+      setTimeout(() => {
+        body.innerHTML += '<div class="chat-msg bot">' + reply + '</div>';
+        body.scrollTop = body.scrollHeight;
+        if (!document.getElementById('chatWindow').classList.contains('open')) toggleChat();
+      }, 600);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function openDemoModal() { document.getElementById('demoModal').classList.add('active'); }
+    function hideCookie() {
+      document.getElementById('cookieBar').classList.remove('show');
+      localStorage.setItem('zh_cookie_consent', 'true');
+    }
+    if (!localStorage.getItem('zh_cookie_consent')) {
+      setTimeout(() => document.getElementById('cookieBar').classList.add('show'), 1000);
+    }
+
+    // Back to top & navbar scroll
+    window.addEventListener('scroll', function() {
+      const btn = document.getElementById('backToTop');
+      if (window.scrollY > 500) btn.classList.add('show'); else btn.classList.remove('show');
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) nav.classList.add('nav-scrolled'); else nav.classList.remove('nav-scrolled');
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const id = this.getAttribute('href');
+        if (id && id.length > 1 && document.querySelector(id)) {
+          e.preventDefault();
+          document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.scroll-section').forEach(el => observer.observe(el));
+
+    // Close modals on outside click
+    document.addEventListener('click', function(e) {
+      document.querySelectorAll('.modal.active').forEach(m => {
+        if (e.target === m) closeModal(m.id);
+      });
+    });
+  </script>
+</body>
+</html>
