@@ -348,16 +348,12 @@
   <!-- BACK TO TOP -->
   <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
 
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
   <script src="js/main.js"></script>
-  <script>
-    function adminLogin() {
-      localStorage.setItem('zh_user', JSON.stringify({id:'ADMIN-001', name:'System Admin', email:'admin@zh.com', role:'admin'}));
-      localStorage.setItem('zh_role', 'admin');
-      localStorage.setItem('zh_login_time', Date.now().toString());
-      window.location.href = 'admin.html';
-    }
-
-    // Chat widget
+  <script>// Chat widget
     function toggleChat() {
       document.getElementById('chatWindow').classList.toggle('open');
       document.getElementById('chatBubble').style.display = document.getElementById('chatWindow').classList.contains('open') ? 'none' : 'flex';

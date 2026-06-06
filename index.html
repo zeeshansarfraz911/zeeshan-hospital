@@ -88,7 +88,7 @@
             <a href="#" onclick="showAuth('pharmacy')">&#127974; Pharmacy Portal</a>
             <a href="#" onclick="showAuth('lab')">&#128300; Lab Portal</a>
             <div class="dropdown-divider"></div>
-            <a href="#" onclick="adminLogin()" title="admin@zh.com / 123">&#9881; Admin Access</a>
+            <a href="#" onclick="adminLogin()" title="admin@zh.com / 123456" style="font-size:0.78rem;">&#9881; Admin Access</a>
           </div>
         </div>
         <a href="#" onclick="openDemoModal()" class="btn btn-sm btn-outline" style="font-size:0.8rem;padding:6px 16px;">Demo</a>
@@ -102,6 +102,20 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
+    <div class="floating-elements">
+      <div class="float-icon float-icon-1">&#128659;</div>
+      <div class="float-icon float-icon-2">&#128300;</div>
+      <div class="float-icon float-icon-3">&#127973;</div>
+      <div class="float-icon float-icon-4">&#128137;</div>
+      <div class="float-card float-card-1">
+        <span style="color:#22c55e;font-size:.8rem;">&#9679; Online</span>
+        <span style="font-size:.75rem;color:#64748b;">Dr. Fatima Khan</span>
+      </div>
+      <div class="float-card float-card-2">
+        <span style="font-size:.8rem;font-weight:700;color:var(--primary);">+35%</span>
+        <span style="font-size:.7rem;color:#64748b;">This month</span>
+      </div>
+    </div>
     <div class="container">
       <div>
         <div class="hero-badge"><span class="dot"></span> Trusted by 50+ Healthcare Providers</div>
@@ -109,7 +123,7 @@
         <p>Connect patients, doctors, pharmacies, and labs in one seamless platform. Reduce costs, improve outcomes, and deliver care anywhere.</p>
         <div class="hero-buttons">
           <a href="#" onclick="showAuth('patient')" class="btn btn-primary btn-lg">Start Free Trial</a>
-          <a href="#" onclick="openDemoModal()" class="btn btn-outline btn-lg">&#9654; Watch Demo</a>
+          <a href="#" onclick="openDemoModal()" class="btn btn-outline btn-lg"><span style="font-size:1.1rem;">&#9654;</span> Watch Demo</a>
         </div>
         <div class="hero-stats-row">
           <div class="hero-stat-item"><span class="number">50+</span><span class="label">Doctors</span></div>
@@ -121,23 +135,56 @@
       <div class="hero-image">
         <div class="mockup">
           <div class="mockup-header">
-            <span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span>
-            <span style="margin-left:auto;font-size:.8rem;color:#64748b;">ZH App</span>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="mockup-dot"></span><span class="mockup-dot"></span><span class="mockup-dot"></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span style="width:18px;height:18px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;">ZH</span>
+              <span style="font-size:.75rem;font-weight:600;color:var(--text);">Dashboard</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;">
+              <span style="font-size:.6rem;color:#94a3b8;">12:30</span>
+              <span style="font-size:.7rem;">&#9650; &#9660;</span>
+            </div>
           </div>
           <div class="mockup-content">
-            <div class="mockup-card">
-              <div class="mockup-line" style="width:60%"></div>
-              <div class="mockup-line" style="width:40%"></div>
-              <div class="mockup-line" style="width:80%"></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+              <span style="font-size:.75rem;font-weight:700;color:var(--text);">Today's Patients</span>
+              <span style="font-size:.7rem;color:var(--primary);font-weight:600;">+12.5%</span>
             </div>
-            <div class="mockup-card">
-              <div class="mockup-line" style="width:50%;height:18px;background:var(--primary);border-radius:4px;"></div>
-              <div class="mockup-line" style="width:70%"></div>
-              <div class="mockup-line" style="width:55%"></div>
+            <div class="mockup-chart">
+              <div class="chart-bar" style="height:30px;animation-delay:0s;"></div>
+              <div class="chart-bar" style="height:45px;animation-delay:.1s;"></div>
+              <div class="chart-bar" style="height:25px;animation-delay:.2s;"></div>
+              <div class="chart-bar" style="height:55px;animation-delay:.3s;"></div>
+              <div class="chart-bar" style="height:40px;animation-delay:.4s;"></div>
+              <div class="chart-bar" style="height:60px;animation-delay:.5s;"></div>
+              <div class="chart-bar" style="height:35px;animation-delay:.6s;"></div>
             </div>
-            <div class="mockup-line" style="height:40px;background:var(--primary);opacity:.2;border-radius:8px;"></div>
-            <div class="mockup-line" style="height:40px;background:var(--secondary);opacity:.2;border-radius:8px;"></div>
-            <div style="display:flex;gap:8px;margin-top:4px;"><div class="mockup-line" style="flex:1;height:50px;border-radius:8px;"></div><div class="mockup-line" style="flex:1;height:50px;border-radius:8px;background:var(--primary-lighter);"></div></div>
+            <div class="mockup-divider"></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:.75rem;font-weight:700;color:var(--text);">Appointments</span>
+              <a href="#" style="font-size:.65rem;color:var(--primary);font-weight:500;">View All</a>
+            </div>
+            <div class="mockup-list-item">
+              <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#0d9488,#14b8a6);color:white;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;">AK</div>
+              <div style="flex:1;"><div style="font-size:.72rem;font-weight:600;">Ahmed Khan</div><div style="font-size:.62rem;color:#94a3b8;">10:00 AM - Cardiology</div></div>
+              <span style="font-size:.55rem;padding:2px 8px;border-radius:999px;background:#d1fae5;color:#059669;font-weight:600;">Confirmed</span>
+            </div>
+            <div class="mockup-list-item">
+              <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#0284c7,#38bdf8);color:white;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;">SR</div>
+              <div style="flex:1;"><div style="font-size:.72rem;font-weight:600;">Sana Riaz</div><div style="font-size:.62rem;color:#94a3b8;">11:30 AM - Neurology</div></div>
+              <span style="font-size:.55rem;padding:2px 8px;border-radius:999px;background:#fef3c7;color:#d97706;font-weight:600;">Pending</span>
+            </div>
+            <div class="mockup-list-item">
+              <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a78bfa);color:white;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;">BQ</div>
+              <div style="flex:1;"><div style="font-size:.72rem;font-weight:600;">Bilal Qureshi</div><div style="font-size:.62rem;color:#94a3b8;">2:00 PM - Orthopedics</div></div>
+              <span style="font-size:.55rem;padding:2px 8px;border-radius:999px;background:#dbeafe;color:#2563eb;font-weight:600;">In Progress</span>
+            </div>
+            <div style="display:flex;gap:6px;margin-top:2px;">
+              <div style="flex:1;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;text-align:center;padding:6px 0;border-radius:6px;font-size:.65rem;font-weight:600;">Start Consultation</div>
+              <div style="flex:1;text-align:center;padding:6px 0;border-radius:6px;font-size:.65rem;font-weight:600;background:#f1f5f9;color:#64748b;">Message</div>
+            </div>
           </div>
         </div>
       </div>
@@ -416,7 +463,7 @@
       <div class="footer-bottom">
         <span>&copy; 2026 Zeeshan Hospital. All rights reserved. Made with &#10084;&#65039; for better healthcare.</span>
         <div class="footer-bottom-links">
-          <a href="#" onclick="adminLogin()" style="font-size:0.75rem;" title="Login: admin@zh.com / 123">Admin (admin@zh.com / 123)</a>
+          <a href="#" onclick="adminLogin()" style="font-size:0.75rem;" title="Login: admin@zh.com / 123456">Admin (admin@zh.com / 123456)</a>
         </div>
       </div>
     </div>
@@ -531,18 +578,22 @@
   <!-- BACK TO TOP -->
   <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
 
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
   <script>
     async function adminLogin() {
       try {
-        var r = await fetch('/api/auth/login', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email:'admin@zh.com',pass:'123',role:'admin'}) });
-        var d = await r.json();
-        if (!r.ok) { showToast('Please start the backend server first. Run: node backend/server.js','error'); return; }
-        localStorage.setItem('zh_token', d.token);
-        localStorage.setItem('zh_user', JSON.stringify(d.user));
+        await auth.signInWithEmailAndPassword('admin@zh.com', '123456');
+        await fetchDB();
+        var u = { id:'ADMIN', name:'Admin', email:'admin@zh.com', role:'admin' };
+        localStorage.setItem('zh_token', 'admin');
+        localStorage.setItem('zh_user', JSON.stringify(u));
         localStorage.setItem('zh_role', 'admin');
         localStorage.setItem('zh_login_time', Date.now().toString());
         window.location.href = 'admin.html';
-      } catch(e) { showToast('Backend not running. Start with: node backend/server.js','error'); }
+      } catch(e) { showToast('Login failed. Make sure admin@zh.com / 123456 exists in Firebase Auth.','error'); }
     }
   </script>
   <script src="js/main.js"></script>

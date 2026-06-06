@@ -329,6 +329,7 @@ p { color: var(--text-secondary); }
   background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 40%, #e0f2fe 100%);
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .hero::before {
@@ -461,30 +462,35 @@ p { color: var(--text-secondary); }
 }
 
 .hero-image .mockup {
-  width: 320px;
-  height: 580px;
+  width: 340px;
   background: white;
-  border-radius: 32px;
-  box-shadow: var(--shadow-xl);
-  padding: 20px;
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(13,148,136,0.15), 0 8px 24px rgba(0,0,0,0.06);
+  padding: 18px;
   display: flex;
   flex-direction: column;
-  border: 4px solid #e2e8f0;
+  border: 1px solid rgba(226,232,240,0.6);
   position: relative;
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: transform 0.6s ease;
+}
+
+.hero-image .mockup:hover {
+  transform: perspective(1000px) rotateY(0deg);
 }
 
 .mockup-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding-bottom: 14px;
+  justify-content: space-between;
+  padding-bottom: 12px;
   border-bottom: 1px solid var(--border);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .mockup-dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
 }
 
@@ -493,44 +499,97 @@ p { color: var(--text-secondary); }
 .mockup-dot:nth-child(3) { background: #22c55e; }
 
 .mockup-content {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 8px;
+}
+
+.mockup-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 65px;
+  padding: 8px 0;
+}
+
+.chart-bar {
+  flex: 1;
+  background: linear-gradient(to top, var(--primary), var(--primary-light));
+  border-radius: 3px 3px 0 0;
+  animation: chartRise 0.8s ease both;
+  min-height: 8px;
+}
+
+@keyframes chartRise {
+  from { height: 0 !important; opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mockup-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 6px 0;
+}
+
+.mockup-list-item {
+  display: flex;
+  align-items: center;
   gap: 10px;
+  padding: 8px 8px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
 }
 
-.mockup-line {
-  height: 12px;
-  background: #f1f5f9;
-  border-radius: 4px;
-}
-
-.mockup-line:nth-child(1) { width: 80%; }
-.mockup-line:nth-child(2) { width: 60%; }
-.mockup-line:nth-child(3) { width: 90%; }
-.mockup-line:nth-child(4) { width: 45%; }
-
-.mockup-line-lg {
-  height: 50px;
-  width: 100%;
-}
-
-.mockup-card {
+.mockup-list-item:hover {
   background: var(--primary-bg);
-  border-radius: var(--radius-sm);
-  padding: 14px;
+}
+
+/* Floating Elements */
+.floating-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.float-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  animation: float 3s ease-in-out infinite;
+}
+
+.float-icon-1 { top: 15%; left: 8%; animation-delay: 0s; }
+.float-icon-2 { top: 60%; left: 5%; animation-delay: 0.5s; }
+.float-icon-3 { top: 25%; right: 8%; animation-delay: 1s; }
+.float-icon-4 { top: 55%; right: 5%; animation-delay: 1.5s; }
+
+.float-card {
+  position: absolute;
+  background: white;
+  border-radius: 12px;
+  padding: 10px 14px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 2px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  animation: float 4s ease-in-out infinite;
 }
 
-.mockup-card .line-group {
-  display: flex;
-  gap: 8px;
-}
+.float-card-1 { top: 20%; right: 38%; animation-delay: 0.3s; }
+.float-card-2 { bottom: 18%; left: 38%; animation-delay: 0.8s; }
 
-.mockup-card .line-group .mockup-line {
-  flex: 1;
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
 /* ---------- 6. Section Styling ---------- */
@@ -2986,7 +3045,7 @@ tr:hover td {
 
   .hero-image .mockup {
     width: 240px;
-    height: 440px;
+    transform: none;
   }
 
   .stats-grid {
@@ -3063,6 +3122,10 @@ tr:hover td {
 
   .mockup-header {
     font-size: 0.8rem;
+  }
+
+  .floating-elements {
+    display: none;
   }
 
   .prescription-paper {

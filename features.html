@@ -283,13 +283,23 @@
   <!-- BACK TO TOP -->
   <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
 
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
   <script src="js/main.js"></script>
   <script>
-    function adminLogin() {
-      localStorage.setItem('zh_user', JSON.stringify({id:'ADMIN-001', name:'System Admin', email:'admin@zh.com', role:'admin'}));
-      localStorage.setItem('zh_role', 'admin');
-      localStorage.setItem('zh_login_time', Date.now().toString());
-      window.location.href = 'admin.html';
+    async function adminLogin() {
+      try {
+        await auth.signInWithEmailAndPassword('admin@zh.com', '123456');
+        await fetchDB();
+        var u = { id:'ADMIN', name:'Admin', email:'admin@zh.com', role:'admin' };
+        localStorage.setItem('zh_token', 'admin');
+        localStorage.setItem('zh_user', JSON.stringify(u));
+        localStorage.setItem('zh_role', 'admin');
+        localStorage.setItem('zh_login_time', Date.now().toString());
+        window.location.href = 'admin.html';
+      } catch(e) { showToast('Login failed: ' + e.message,'error'); }
     }
 
     // Chat widget
