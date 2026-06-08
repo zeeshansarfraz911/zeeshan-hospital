@@ -25,7 +25,12 @@
   <meta name="twitter:title" content="Zeeshan Hospital — Best Hospital in Lahore | Medical Consultancy">
   <meta name="twitter:description" content="Lahore's premier JCI-accredited hospital offering expert medical consultancy, specialist consultations, and advanced healthcare. 120+ board-certified doctors.">
   <meta name="twitter:image" content="https://zeeshan-hospital.vercel.app/assets/logo.png">
-  <meta name="theme-color" content="#0d4f4a">
+  <meta name="theme-color" content="#0d9488">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Zeeshan Hospital">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="css/style.css">
 
   <!-- Analytics: Vercel Web Analytics -->
@@ -807,29 +812,34 @@
     </div>
   </section>
 
-  <!-- ========== APP DOWNLOAD ========== -->
-  <section class="app-section">
+  <!-- ========== APP DOWNLOAD — PWA Installable App ========== -->
+  <section class="app-section" id="app-download">
     <div class="container">
       <div class="app-card">
         <div style="max-width:560px;position:relative;z-index:2;">
           <span class="section-eyebrow" style="color:rgba(255,255,255,0.7);">Zeeshan Hospital App</span>
           <h2>Your health, in your pocket.</h2>
-          <p style="color:rgba(255,255,255,0.65);">Book appointments, join video visits, view results, message your care team, and manage your family's health — all in one beautifully designed app.</p>
+          <p style="color:rgba(255,255,255,0.65);">Book appointments, join video visits, view results, message your care team, and manage your family's health — all in one beautifully designed app. <strong>No app store needed</strong> — installs directly on your phone!</p>
           <div class="app-buttons">
-            <a href="#" class="app-btn">
-              <span class="ico"></span>
-              <div>
-                <div class="lbl">Download on the</div>
-                <div class="v">App Store</div>
+            <button class="app-btn" id="installAppBtn" style="display:none;border:none;cursor:pointer;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;border-radius:14px;padding:14px 24px;font-family:inherit;align-items:center;gap:12px;">
+              <span class="ico" style="font-size:1.5rem;">📲</span>
+              <div style="text-align:left;">
+                <div class="lbl" style="font-size:0.7rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.08em;">Install Now</div>
+                <div class="v" style="font-size:1rem;font-weight:700;">Install the App</div>
               </div>
-            </a>
-            <a href="#" class="app-btn">
-              <span class="ico">▶</span>
-              <div>
-                <div class="lbl">Get it on</div>
-                <div class="v">Google Play</div>
+            </button>
+            <button class="app-btn" id="howToInstallBtn" onclick="showInstallInstructions()" style="border:none;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.8);border-radius:14px;padding:14px 24px;font-family:inherit;align-items:center;gap:12px;">
+              <span class="ico" style="font-size:1.5rem;">ℹ️</span>
+              <div style="text-align:left;">
+                <div class="lbl" style="font-size:0.7rem;opacity:0.6;text-transform:uppercase;letter-spacing:0.08em;">How to Install</div>
+                <div class="v" style="font-size:1rem;font-weight:700;">Add to Home Screen</div>
               </div>
-            </a>
+            </button>
+          </div>
+          <div id="installInstructions" style="display:none;margin-top:16px;padding:16px 20px;background:rgba(255,255,255,0.06);border-radius:12px;border:1px solid rgba(255,255,255,0.1);">
+            <p style="color:rgba(255,255,255,0.8);font-size:0.85rem;margin:0 0 8px;"><strong>📱 Android (Chrome):</strong> Tap the ⋮ menu → "Add to Home Screen"</p>
+            <p style="color:rgba(255,255,255,0.8);font-size:0.85rem;margin:0 0 8px;"><strong>📱 iPhone (Safari):</strong> Tap the Share button → "Add to Home Screen"</p>
+            <p style="color:rgba(255,255,255,0.6);font-size:0.8rem;margin:0;">Once installed, the app works offline and gives you one-tap access to everything.</p>
           </div>
         </div>
         <div class="phone-mockup">
@@ -1187,6 +1197,50 @@
     });
 
     // ---- Footer hover effect (CSS handles this now) ----
+
+    // ---- PWA Install Prompt ----
+    var deferredInstallPrompt = null;
+    var installBtn = document.getElementById('installAppBtn');
+
+    window.addEventListener('beforeinstallprompt', function(e) {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      if (installBtn) installBtn.style.display = 'flex';
+    });
+
+    if (installBtn) {
+      installBtn.addEventListener('click', function() {
+        if (deferredInstallPrompt) {
+          deferredInstallPrompt.prompt();
+          deferredInstallPrompt.userChoice.then(function(choice) {
+            deferredInstallPrompt = null;
+            installBtn.style.display = 'none';
+          });
+        }
+      });
+    }
+
+    window.addEventListener('appinstalled', function() {
+      deferredInstallPrompt = null;
+      if (installBtn) installBtn.style.display = 'none';
+      showToast('✅ Zeeshan Hospital app installed!', 'success');
+    });
+
+    function showInstallInstructions() {
+      var el = document.getElementById('installInstructions');
+      if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    }
+
+    // ---- Register Service Worker for PWA ----
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(reg) {
+          console.log('✅ PWA Service Worker registered');
+        }).catch(function(err) {
+          console.warn('⚠️ Service Worker registration failed:', err);
+        });
+      });
+    }
 
     console.log('%c✨ Zeeshan Hospital — Professional Redesign', 'font-size:18px;font-weight:800;color:#0d9488;');
     console.log('%cWorld-class healthcare · JCI Accredited · 25 years of excellence', 'font-size:12px;color:#64748b;');

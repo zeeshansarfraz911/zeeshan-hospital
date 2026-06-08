@@ -1,0 +1,45 @@
+{
+  "name": "Zeeshan Hospital — Complete Healthcare Ecosystem",
+  "short_name": "Zeeshan Hospital",
+  "description": "Book appointments, access medical records, consult with specialists, and manage your healthcare — all from your phone.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1929",
+  "theme_color": "#0d9488",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "categories": ["medical", "health", "hospital", "healthcare"],
+  "lang": "en-PK",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "shortcuts": [
+    {
+      "name": "Book Appointment",
+      "short_name": "Appointment",
+      "description": "Book a medical consultation",
+      "url": "/?book=true"
+    },
+    {
+      "name": "Patient Portal",
+      "short_name": "Portal",
+      "description": "Access your patient portal",
+      "url": "/login.html"
+    }
+  ]
+}
