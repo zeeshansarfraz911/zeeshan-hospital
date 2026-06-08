@@ -1,0 +1,12 @@
+.opencode
+.firebase
+.vercel
+node_modules
+*.md
+.git
+.gitignore
+firebase.json
+.firebaserc
+opencode.jsonc
+b2b_cold_outreach_sequence.md
+post_discharge_revenue_leakage_problem_statement.md
