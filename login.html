@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeeshan Hospital — Sign In to Your Portal</title>
+  <meta name="description" content="Access your patient, doctor, pharmacy, or lab portal. Secure login for Zeeshan Hospital's complete healthcare ecosystem.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="canonical" href="https://zeeshan-hospital.vercel.app/login.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Zeeshan Hospital — Sign In to Your Portal">
+  <meta property="og:description" content="Access your patient, doctor, pharmacy, or lab portal. Secure login for Zeeshan Hospital's complete healthcare ecosystem.">
+  <meta property="og:image" content="https://zeeshan-hospital.vercel.app/assets/logo.png">
+  <meta property="og:url" content="https://zeeshan-hospital.vercel.app/login.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zeeshan Hospital">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zeeshan Hospital — Sign In to Your Portal">
+  <meta name="twitter:description" content="Access your patient, doctor, pharmacy, or lab portal.">
+  <meta name="twitter:image" content="https://zeeshan-hospital.vercel.app/assets/logo.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #0d9488;
+      --primary-dark: #0f766e;
+      --primary-light: #14b8a6;
+      --text: #0f172a;
+      --text-secondary: #334155;
+      --text-light: #64748b;
+      --text-lighter: #94a3b8;
+      --border: #e2e8f0;
+      --bg-card: #ffffff;
+      --shadow-lg: 0 16px 40px rgba(0,0,0,0.1);
+      --shadow-xl: 0 24px 60px rgba(0,0,0,0.14);
+      --radius: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #f8fafc;
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== LEFT PANEL — Brand / Hero ===== */
+    .brand-panel {
+      flex: 1;
+      background: linear-gradient(135deg, #0d9488 0%, #0f766e 40%, #0b1120 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+    .brand-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 30%, rgba(255,255,255,0.08), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 70%, rgba(20,184,166,0.1), transparent);
+      pointer-events: none;
+    }
+
+    /* SKILL: Animated Gradient Mesh */
+    .gradient-mesh {
+      position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+    }
+    .gradient-mesh::before {
+      content: ''; position: absolute; inset: -50%;
+      background:
+        radial-gradient(ellipse 60% 50% at 18% 20%, rgba(255,255,255,0.06), transparent),
+        radial-gradient(ellipse 50% 40% at 82% 25%, rgba(20,184,166,0.04), transparent);
+      background-size: 200% 200%;
+      animation: meshShift 12s ease infinite;
+      will-change: transform, background-position;
+    }
+    @keyframes meshShift {
+      0%   { background-position: 0% 50%; }
+      25%  { background-position: 100% 0%; }
+      50%  { background-position: 50% 100%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* SKILL: Text Reveal */
+    .text-reveal {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      transition: clip-path 1s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: clip-path;
+    }
+    .text-reveal.revealed {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .text-reveal-delay-1 { transition-delay: 0.1s; }
+    .text-reveal-delay-2 { transition-delay: 0.2s; }
+    .text-reveal-delay-3 { transition-delay: 0.35s; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      .text-reveal { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important; }
+      .gradient-mesh::before { animation: none !important; }
+    }
+
+    /* Floating medical icons */
+    .float-icons { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .fi {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.15;
+      animation: float 8s ease-in-out infinite;
+    }
+    .fi-1 { top: 15%; left: 10%; animation-delay: 0s; }
+    .fi-2 { top: 40%; left: 5%; animation-delay: 2s; }
+    .fi-3 { top: 70%; left: 15%; animation-delay: 4s; }
+    .fi-4 { top: 25%; right: 15%; animation-delay: 1s; }
+    .fi-5 { top: 55%; right: 10%; animation-delay: 3s; }
+    .fi-6 { top: 80%; right: 20%; animation-delay: 5s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    .brand-content {
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .brand-logo img { height: 42px; width: auto; }
+    .brand-logo span { color: white; font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; }
+
+    .brand-content h1 {
+      color: white;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .brand-content h1 span {
+      background: linear-gradient(135deg, #5eead4, #99f6e4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .brand-content p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    /* Emergency CTA */
+    .emergency-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 28px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      border-radius: var(--radius-full);
+      color: #fca5a5;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+    .emergency-cta:hover {
+      background: rgba(239, 68, 68, 0.25);
+      transform: translateY(-2px);
+    }
+    .emergency-cta .pulse-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #ef4444;
+      animation: pulse-emergency 1.5s ease infinite;
+    }
+    @keyframes pulse-emergency {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .brand-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .brand-stat { display: flex; flex-direction: column; }
+    .brand-stat .num { font-size: 1.5rem; font-weight: 800; color: white; }
+    .brand-stat .lbl { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+
+    /* ===== RIGHT PANEL — Login ===== */
+    .login-panel {
+      width: 520px;
+      min-width: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      background: var(--bg-card);
+    }
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    /* Role selector tabs */
+    .role-selector {
+      display: flex;
+      gap: 6px;
+      background: #f1f5f9;
+      border-radius: var(--radius);
+      padding: 4px;
+      margin-bottom: 32px;
+      overflow-x: auto;
+    }
+    .role-btn {
+      flex: 1;
+      padding: 10px 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-light);
+      background: transparent;
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+      text-align: center;
+    }
+    .role-btn:hover { color: var(--text); }
+    .role-btn.active {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .login-header { margin-bottom: 28px; }
+    .login-header h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 6px; }
+    .login-header p { color: var(--text-light); font-size: 0.9rem; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--bg-card);
+      transition: all var(--transition);
+      outline: none;
+    }
+    .form-group input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(13,148,136,0.1);
+    }
+    .form-group input::placeholder { color: var(--text-lighter); }
+
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      cursor: pointer;
+      transition: all var(--transition);
+      box-shadow: 0 4px 16px rgba(13,148,136,0.3);
+    }
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(13,148,136,0.4);
+    }
+    .login-btn:active { transform: scale(0.98); }
+
+    .login-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 24px 0;
+      color: var(--text-lighter);
+      font-size: 0.8rem;
+    }
+    .login-divider::before,
+    .login-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .register-link {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+    .register-link a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .register-link a:hover { text-decoration: underline; }
+
+    .portal-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .portal-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all var(--transition);
+      cursor: pointer;
+      background: var(--bg-card);
+    }
+    .portal-link:hover {
+      border-color: var(--primary-subtle);
+      box-shadow: var(--shadow);
+      color: var(--primary);
+    }
+    .portal-link .icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* Google Sign-In Button */
+    .google-btn {
+      width: 100%;
+      padding: 12px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: white;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .google-btn:hover {
+      border-color: var(--primary);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transform: translateY(-1px);
+    }
+    .google-btn img { width: 20px; height: 20px; }
+    .google-btn:active { transform: scale(0.98); }
+
+    /* Forgot Password */
+    .forgot-link {
+      display: block;
+      text-align: right;
+      font-size: 0.8rem;
+      color: var(--text-lighter);
+      text-decoration: none;
+      margin-top: -8px;
+      margin-bottom: 16px;
+      transition: color var(--transition);
+    }
+    .forgot-link:hover { color: var(--primary); }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 24px;
+      font-size: 0.82rem;
+      color: var(--text-lighter);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .back-home:hover { color: var(--primary); }
+
+    /* Spinner inline for Google sign-in */
+    .spinner-sm {
+      display: inline-block;
+      width: 18px; height: 18px;
+      border: 2px solid #e2e8f0;
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 1024px) {
+      body { flex-direction: column; }
+      .brand-panel {
+        min-height: auto;
+        padding: 40px 32px;
+      }
+      .brand-content { max-width: 100%; }
+      .brand-stats { margin-top: 24px; }
+      .login-panel {
+        width: 100%;
+        min-width: auto;
+        padding: 40px 24px;
+      }
+    }
+    @media (max-width: 640px) {
+      .portal-links { grid-template-columns: 1fr; }
+      .brand-stats { gap: 20px; }
+      .brand-stat .num { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LEFT PANEL: Brand / Hospital Identity -->
+  <div class="brand-panel">
+    <!-- SKILL: Animated Gradient Mesh -->
+    <div class="gradient-mesh"></div>
+    <div class="float-icons parallax-bg" data-speed="0.1">
+      <span class="fi fi-1">🏥</span>
+      <span class="fi fi-2">💉</span>
+      <span class="fi fi-3">🔬</span>
+      <span class="fi fi-4">📋</span>
+      <span class="fi fi-5">💊</span>
+      <span class="fi fi-6">❤️</span>
+    </div>
+    <div class="brand-content">
+      <div class="brand-logo">
+        <img src="assets/logo.png?v=2" alt="Zeeshan Hospital">
+        <span>Zeeshan Hospital</span>
+      </div>
+      <h1><span class="text-reveal revealed">Complete Healthcare</span> <span class="text-reveal text-reveal-delay-1">Ecosystem</span></h1>
+      <p class="text-reveal text-reveal-delay-2">Connect with your care team, manage appointments, access records, and get the treatment you need — all from one platform.</p>
+
+      <a href="#" class="emergency-cta" onclick="selectRole('patient');document.getElementById('loginEmail').focus();">
+        <span class="pulse-dot"></span>
+        Emergency & Urgent Care — 24/7
+      </a>
+
+      <div class="brand-stats">
+        <div class="brand-stat"><span class="num">50+</span><span class="lbl">Doctors</span></div>
+        <div class="brand-stat"><span class="num">10K+</span><span class="lbl">Patients</span></div>
+        <div class="brand-stat"><span class="num">15+</span><span class="lbl">Specialties</span></div>
+        <div class="brand-stat"><span class="num">99.9%</span><span class="lbl">Uptime</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL: Login -->
+  <div class="login-panel">
+    <div class="login-container">
+
+      <!-- Role Tabs -->
+      <div class="role-selector" id="roleSelector">
+        <button class="role-btn active" data-role="patient" onclick="selectRole('patient')">🧍 Patient</button>
+        <button class="role-btn" data-role="doctor" onclick="selectRole('doctor')">💉 Doctor</button>
+        <button class="role-btn" data-role="pharmacy" onclick="selectRole('pharmacy')">💊 Pharmacy</button>
+        <button class="role-btn" data-role="lab" onclick="selectRole('lab')">🔬 Lab</button>
+      </div>
+
+      <div class="login-header">
+        <h2 id="loginTitle">Patient Portal</h2>
+        <p id="loginSubtitle">Access your health records, appointments, and care team.</p>
+      </div>
+
+      <!-- Quick Portal Links -->
+      <div class="portal-links" id="portalLinks">
+        <!-- Dynamically filled by JS -->
+      </div>
+
+      <!-- Google Sign-In -->
+      <button class="google-btn" id="googleBtn" onclick="handleGoogleSignIn()">
+        <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Sign in with Google
+      </button>
+
+      <div class="login-divider">or sign in with email</div>
+
+      <form id="loginForm" onsubmit="handleLoginSubmit(event)">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" placeholder="Enter your email" autocomplete="email" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter your password" autocomplete="current-password" required>
+        </div>
+        <!-- Hidden fields for main.js handleLogin compatibility -->
+        <input type="hidden" id="authEmail" value="">
+        <input type="hidden" id="authPass" value="">
+        <a href="#" class="forgot-link" onclick="handleForgotPassword(event)">Forgot password?</a>
+        <button type="submit" class="login-btn" id="loginBtn">Sign In</button>
+      </form>
+
+      <p class="register-link" style="margin-top:16px;">
+        Don't have an account? <a href="#" onclick="selectRole('patient');document.getElementById('loginEmail').focus();return false;">Register here</a>
+      </p>
+
+      <p class="register-link" style="margin-top:8px;font-size:0.78rem;color:var(--text-lighter);">
+        <a href="#" onclick="adminLogin()" style="color:var(--text-lighter);">Admin access</a>
+      </p>
+
+      <a href="/" class="back-home">← Back to Home</a>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);padding:14px 28px;border-radius:12px;background:white;border:1px solid #e2e8f0;box-shadow:0 16px 40px rgba(0,0,0,0.1);font-size:0.88rem;font-weight:500;z-index:9999;opacity:0;transition:all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);pointer-events:none;max-width:90vw;text-align:center;"></div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // ===== Role Data =====
+    var roles = {
+      patient: {
+        title: 'Patient Portal',
+        subtitle: 'Access your health records, appointments, and care team.',
+        links: [
+          { icon: '📅', label: 'Book Appointment', action: 'selectRole("patient")' },
+          { icon: '📋', label: 'View Records', action: 'selectRole("patient")' },
+          { icon: '💊', label: 'Order Medicine', action: 'selectRole("patient")' },
+          { icon: '🔬', label: 'Lab Tests', action: 'selectRole("patient")' }
+        ]
+      },
+      doctor: {
+        title: 'Doctor Portal',
+        subtitle: 'Manage patients, consultations, and prescriptions.',
+        links: [
+          { icon: '👥', label: 'My Patients', action: 'selectRole("doctor")' },
+          { icon: '📅', label: 'Schedule', action: 'selectRole("doctor")' },
+          { icon: '📝', label: 'E-Prescriptions', action: 'selectRole("doctor")' },
+          { icon: '📊', label: 'Analytics', action: 'selectRole("doctor")' }
+        ]
+      },
+      pharmacy: {
+        title: 'Pharmacy Portal',
+        subtitle: 'Manage inventory, fulfill prescriptions, and track orders.',
+        links: [
+          { icon: '📋', label: 'Prescriptions', action: 'selectRole("pharmacy")' },
+          { icon: '📦', label: 'Inventory', action: 'selectRole("pharmacy")' },
+          { icon: '🚚', label: 'Deliveries', action: 'selectRole("pharmacy")' },
+          { icon: '📊', label: 'Reports', action: 'selectRole("pharmacy")' }
+        ]
+      },
+      lab: {
+        title: 'Lab Portal',
+        subtitle: 'Manage test requests, results, and collections.',
+        links: [
+          { icon: '🔬', label: 'Test Requests', action: 'selectRole("lab")' },
+          { icon: '📤', label: 'Upload Results', action: 'selectRole("lab")' },
+          { icon: '🚐', label: 'Collections', action: 'selectRole("lab")' },
+          { icon: '📊', label: 'Reports', action: 'selectRole("lab")' }
+        ]
+      }
+    };
+
+    var currentRole = 'patient';
+
+    function selectRole(role) {
+      currentRole = role;
+      // Update active tab
+      document.querySelectorAll('.role-btn').forEach(function(btn) {
+        btn.classList.toggle('active', btn.dataset.role === role);
+      });
+      // Update header
+      document.getElementById('loginTitle').textContent = roles[role].title;
+      document.getElementById('loginSubtitle').textContent = roles[role].subtitle;
+      // Update portal links
+      var container = document.getElementById('portalLinks');
+      container.innerHTML = '';
+      roles[role].links.forEach(function(link) {
+        var a = document.createElement('a');
+        a.className = 'portal-link';
+        a.href = '#';
+        a.setAttribute('onclick', link.action + ';return false;');
+        a.innerHTML = '<span class="icon" style="background:var(--primary-bg);">' + link.icon + '</span>' + link.label;
+        container.appendChild(a);
+      });
+    }
+
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      var email = document.getElementById('loginEmail').value.trim();
+      var pass = document.getElementById('loginPassword').value.trim();
+      if (!email || !pass) { showToast('Please enter email and password', 'error'); return; }
+      // Delegate to main.js handleLogin
+      document.getElementById('authEmail').value = email;
+      document.getElementById('authPass').value = pass;
+      handleLogin();
+    }
+
+    // ===== SKILL: Text Reveal on Load =====
+    setTimeout(function() {
+      document.querySelectorAll('.text-reveal:not(.revealed)').forEach(function(el) {
+        el.classList.add('revealed');
+      });
+    }, 200);
+
+    // ===== SKILL: 3D Tilt on Login Container =====
+    if (window.innerWidth > 768) {
+      var loginContainer = document.querySelector('.login-container');
+      if (loginContainer) {
+        loginContainer.addEventListener('mousemove', function(e) {
+          var rect = this.getBoundingClientRect();
+          var x = (e.clientX - rect.left) / rect.width - 0.5;
+          var y = (e.clientY - rect.top) / rect.height - 0.5;
+          this.style.transform = 'perspective(1000px) rotateY(' + (x * 3) + 'deg) rotateX(' + (-y * 3) + 'deg)';
+          this.style.transition = 'transform 0.1s ease';
+        });
+        loginContainer.addEventListener('mouseleave', function() {
+          this.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+          this.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        });
+      }
+    }
+
+    // Initialize
+    selectRole('patient');
+
+    // Show toast helper (local copy so it works without main.js toast)
+    function showToast(msg, type) {
+      var t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.opacity = '1';
+      t.style.transform = 'translateX(-50%) translateY(0)';
+      if (type === 'error') { t.style.borderColor = '#ef4444'; t.style.color = '#dc2626'; }
+      else { t.style.borderColor = '#22c55e'; t.style.color = '#16a34a'; }
+      clearTimeout(t._timer);
+      t._timer = setTimeout(function() {
+        t.style.opacity = '0';
+        t.style.transform = 'translateX(-50%) translateY(100px)';
+      }, 4000);
+    }
+
+    // ===== Google Sign-In =====
+    function handleGoogleSignIn() {
+      var btn = document.getElementById('googleBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner-sm"></span> Signing in...';
+
+      var provider = new firebase.auth.GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: 'select_account' });
+
+      auth.signInWithPopup(provider)
+        .then(function(result) {
+          var user = result.user;
+          // Check if user profile exists in Firestore, if not create one
+          return db.collection('meta').doc('config').get().then(function(snap) {
+            var d = snap.exists ? snap.data() : null;
+            if (!d) {
+              d = { patients: [], doctors: [], appointments: [], prescriptions: [],
+                    labTests: [], medicines: [], pharmacists: [], labs: [],
+                    notifications: [], messages: [], testTypes: [], testCategories: [],
+                    nextId: 1, _version: 3 };
+            }
+            var existing = (d.patients || []).find(function(p) { return p.email === user.email; });
+            if (!existing) {
+              // Auto-register as patient on first Google sign-in
+              var newUser = {
+                id: 'ZH-' + (d.nextId + 1000),
+                name: user.displayName || user.email.split('@')[0],
+                email: user.email,
+                phone: user.phoneNumber || '',
+                photoURL: user.photoURL || '',
+                bloodGroup: '', gender: '', dob: '', address: '',
+                emailVerified: user.emailVerified,
+                createdAt: new Date().toISOString()
+              };
+              d.nextId = (d.nextId || 0) + 1;
+              d.patients.push(newUser);
+              db.collection('meta').doc('config').set(d);
+              existing = newUser;
+            }
+            // Store session & redirect
+            var authUser = existing;
+            authUser.role = 'patient';
+            return user.getIdToken().then(function(token) {
+              localStorage.setItem('zh_token', token);
+              localStorage.setItem('zh_user', JSON.stringify(authUser));
+              localStorage.setItem('zh_role', 'patient');
+              localStorage.setItem('zh_login_time', Date.now().toString());
+              window.location.href = 'patient.html';
+            });
+          });
+        })
+        .catch(function(error) {
+          btn.disabled = false;
+          btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Sign in with Google';
+          if (error.code === 'auth/popup-closed-by-user') {
+            showToast('Sign-in cancelled', 'error');
+          } else if (error.code === 'auth/account-exists-with-different-credential') {
+            showToast('An account already exists with this email. Try signing in with email/password.', 'error');
+          } else {
+            showToast(error.message || 'Google sign-in failed', 'error');
+          }
+        });
+    }
+
+    // ===== Forgot Password =====
+    function handleForgotPassword(e) {
+      e.preventDefault();
+      var email = document.getElementById('loginEmail').value.trim();
+      if (!email) {
+        showToast('Please enter your email address first', 'error');
+        return;
+      }
+      var btn = e.target;
+      btn.textContent = 'Sending...';
+      btn.style.pointerEvents = 'none';
+
+      auth.sendPasswordResetEmail(email)
+        .then(function() {
+          btn.textContent = 'Forgot password?';
+          btn.style.pointerEvents = 'auto';
+          showToast('Password reset email sent! Check your inbox.', 'success');
+        })
+        .catch(function(error) {
+          btn.textContent = 'Forgot password?';
+          btn.style.pointerEvents = 'auto';
+          var msg = error.code === 'auth/user-not-found'
+            ? 'No account found with this email.'
+            : error.code === 'auth/invalid-email'
+              ? 'Invalid email format.'
+              : 'Failed to send reset email. Please try again.';
+          showToast(msg, 'error');
+        });
+    }
+  </script>
+</body>
+</html>

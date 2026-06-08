@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Zeeshan Hospital</title>
+  <meta name="description" content="The page you're looking for doesn't exist.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://zeeshan-hospital.vercel.app/404.html">
+  <meta name="robots" content="noindex">
+  <meta property="og:title" content="404 — Page Not Found | Zeeshan Hospital">
+  <meta property="og:description" content="The page you're looking for doesn't exist.">
+  <meta property="og:image" content="https://zeeshan-hospital.vercel.app/assets/logo.png">
+  <meta property="og:url" content="https://zeeshan-hospital.vercel.app/404.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zeeshan Hospital">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      background: var(--bg);
+    }
+    .error-code {
+      font-size: clamp(6rem, 15vw, 10rem);
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .error-page h1 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 12px;
+    }
+    .error-page p {
+      color: var(--text-light);
+      max-width: 480px;
+      margin: 0 auto 32px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body class="error-page">
+  <div>
+    <div class="error-code">404</div>
+    <h1>Page Not Found</h1>
+    <p>The page you are looking for might have been moved, deleted, or never existed.</p>
+    <a href="/" class="btn btn-primary btn-lg">Return Home</a>
+  </div>
+</body>
+</html>

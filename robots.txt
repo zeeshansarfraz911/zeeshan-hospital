@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /doctor.html
+Disallow: /patient.html
+Disallow: /lab.html
+Disallow: /pharmacy.html
+Disallow: /GUIDE.html
+
+Sitemap: https://zeeshan-hospital.vercel.app/sitemap.xml

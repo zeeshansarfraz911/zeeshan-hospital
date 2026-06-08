@@ -1,32 +1,94 @@
 <!DOCTYPE html>
-<html><body style="font-family:sans-serif;padding:40px;max-width:600px;margin:auto;">
-<h1>Deploy Zeeshan Hospital - LIVE</h1>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deployment Guide — Zeeshan Hospital</title>
+  <meta name="description" content="Deployment guide for Zeeshan Hospital's complete healthcare ecosystem. Instructions for Firebase and Vercel deployment.">
+  <link rel="canonical" href="https://zeeshan-hospital.vercel.app/GUIDE.html">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      padding: 48px 24px;
+      max-width: 720px;
+      margin: auto;
+      line-height: 1.6;
+    }
+    h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; }
+    .subtitle { color: #64748b; margin-bottom: 32px; font-size: 0.95rem; }
+    h2 {
+      font-size: 1.15rem; font-weight: 700; margin: 32px 0 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    h2 .badge {
+      font-size: 0.65rem; background: #0d9488; color: white;
+      padding: 2px 10px; border-radius: 999px; font-weight: 600;
+    }
+    ol, ul { padding-left: 20px; margin-bottom: 16px; }
+    li { margin-bottom: 8px; font-size: 0.9rem; color: #334155; }
+    code {
+      background: #f1f5f9; padding: 2px 8px; border-radius: 4px;
+      font-size: 0.85rem; color: #0d9488; font-weight: 600;
+    }
+    a { color: #0d9488; font-weight: 600; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .card {
+      background: white; border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: 24px; margin: 16px 0;
+    }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; font-size: 0.8rem; color: #94a3b8; }
+  </style>
+</head>
+<body>
+  <h1>Zeeshan Hospital — Deployment Guide</h1>
+  <p class="subtitle">Get your healthcare platform live in minutes.</p>
 
-<h2>Option A: Render (Recommended - 24/7 free hosting)</h2>
-<ol>
-  <li>Go to <a href="https://dashboard.render.com" target="_blank">dashboard.render.com</a></li>
-  <li>Click <strong>"New +"</strong> → <strong>"Web Service"</strong></li>
-  <li>Select <strong>"zeeshan-hospital"</strong> repo → <strong>"Connect"</strong></li>
-  <li>Name: <code>zeeshan-hospital</code></li>
-  <li>Start Command: <code>cd backend && node server.js</code></li>
-  <li>Click <strong>"Create Web Service"</strong></li>
-  <li>Wait 3 min for green "Live" badge</li>
-</ol>
+  <div class="card">
+    <h2 style="margin-top:0;">&#127760; Option A: Render <span class="badge">Recommended</span></h2>
+    <p style="font-size:0.9rem;color:#64748b;margin-bottom:16px;">Free 24/7 hosting with automatic HTTPS and CI/CD.</p>
+    <ol>
+      <li>Go to <a href="https://dashboard.render.com" target="_blank">dashboard.render.com</a></li>
+      <li>Click <strong>"New +"</strong> → <strong>"Web Service"</strong></li>
+      <li>Select your <strong>zeeshan-hospital</strong> repo → <strong>"Connect"</strong></li>
+      <li>Name: <code>zeeshan-hospital</code></li>
+      <li>Start Command: <code>cd backend && node server.js</code></li>
+      <li>Click <strong>"Create Web Service"</strong></li>
+      <li>Wait ~3 minutes for the green <strong>"Live"</strong> badge</li>
+    </ol>
+  </div>
 
-<h2>Option B: Local (test only)</h2>
-<ol>
-  <li>Open terminal in the ZH folder</li>
-  <li>Run: <code>cd backend && node server.js</code></li>
-  <li>Open <a href="http://localhost:3000">http://localhost:3000</a></li>
-</ol>
+  <div class="card">
+    <h2 style="margin-top:0;">&#128187; Option B: Vercel (Static)</h2>
+    <p style="font-size:0.9rem;color:#64748b;margin-bottom:16px;">Best for the frontend-only version.</p>
+    <ol>
+      <li>Install Vercel CLI: <code>npm i -g vercel</code></li>
+      <li>Run: <code>vercel</code> in the project root</li>
+      <li>Follow the prompts to link and deploy</li>
+      <li>Your site is live at <code>https://zh-project.vercel.app</code></li>
+    </ol>
+  </div>
 
-<h2>Demo Credentials</h2>
-<table border="1" cellpadding="8" cellspacing="0">
-<tr><th>Portal</th><th>Email</th><th>Password</th></tr>
-<tr><td>Admin</td><td>admin@zh.com</td><td>123456</td></tr>
-<tr><td>Doctor</td><td>doctor@zh.com</td><td>123456</td></tr>
-<tr><td>Patient</td><td>ahmed@test.com</td><td>123456</td></tr>
-<tr><td>Pharmacy</td><td>pharmacy@zh.com</td><td>123456</td></tr>
-<tr><td>Lab</td><td>lab@zh.com</td><td>123456</td></tr>
-</table>
-</body></html>
+  <div class="card">
+    <h2 style="margin-top:0;">&#128295; Option C: Firebase (Full Stack)</h2>
+    <p style="font-size:0.9rem;color:#64748b;margin-bottom:16px;">Deploy with Firebase Hosting + Firestore.</p>
+    <ol>
+      <li>Install Firebase CLI: <code>npm i -g firebase-tools</code></li>
+      <li>Login: <code>firebase login</code></li>
+      <li>Init: <code>firebase init</code> (select Hosting + Firestore)</li>
+      <li>Deploy: <code>firebase deploy</code></li>
+      <li>Your site is live on <code>https://zeeshan-hospital.web.app</code></li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2026 Zeeshan Hospital. Need help? Contact support@zeeshanhospital.com</p>
+  </div>
+</body>
+</html>

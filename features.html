@@ -3,186 +3,318 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Features - Zeeshan Hospital</title>
+  <title>Features — Zeeshan Hospital | Complete Healthcare Platform</title>
   <meta name="description" content="Everything you need to run your healthcare practice — patient management, video consultations, e-prescriptions, lab integration and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="canonical" href="https://zeeshan-hospital.vercel.app/features.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Features — Zeeshan Hospital | Complete Healthcare Platform">
+  <meta property="og:description" content="Everything you need to run your healthcare practice — patient management, video consultations, e-prescriptions, lab integration and more.">
+  <meta property="og:image" content="https://zeeshan-hospital.vercel.app/assets/logo.png">
+  <meta property="og:url" content="https://zeeshan-hospital.vercel.app/features.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zeeshan Hospital">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Features — Zeeshan Hospital | Complete Healthcare Platform">
+  <meta name="twitter:description" content="Everything you need to run your healthcare practice — patient management, video consultations, e-prescriptions, lab integration.">
+  <meta name="twitter:image" content="https://zeeshan-hospital.vercel.app/assets/logo.png">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/business.css">
   <style>
-    :root { --primary: #0d9488; --primary-dark: #0f766e; --primary-light: #14b8a6; --primary-lighter: #5eead4; --primary-subtle: #ccfbf1; --primary-bg: #f0fdfa; --secondary: #0284c7; --accent: #f59e0b; }
-    .scroll-section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .scroll-section.visible { opacity: 1; transform: translateY(0); }
-    .nav-scrolled { background: rgba(255,255,255,0.95) !important; backdrop-filter: blur(12px) !important; box-shadow: 0 1px 8px rgba(0,0,0,0.08) !important; }
-    .features-hero { padding: 140px 0 60px; background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 40%, #e0f2fe 100%); position: relative; overflow: hidden; text-align: center; }
-    .features-hero h1 { font-size: 2.8rem; font-weight: 800; color: var(--text); margin-bottom: 12px; }
-    .features-hero p { font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
-    .features-hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(13,148,136,0.08) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    /* Features page specific styles */
+    .page-hero {
+      padding: 140px 0 60px;
+      background: linear-gradient(135deg, var(--primary-bg), var(--primary-subtle) 40%, #e0f2fe 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(13,148,136,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .page-hero h1 { margin-bottom: 16px; }
+    .page-hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
     .feature-category { margin-bottom: 48px; }
-    .feature-category h3 { font-size: 1.4rem; font-weight: 700; color: var(--text); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-    .feature-category h3::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    @media (max-width: 768px) { .features-hero h1 { font-size: 2rem; } }
+    .feature-category:last-child { margin-bottom: 0; }
+    .feature-category h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .feature-category h3::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: all var(--transition);
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-subtle);
+    }
+    .feature-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius);
+      background: var(--primary-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+      transition: all var(--transition);
+    }
+    .feature-card:hover .feature-card-icon {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.1);
+    }
+    .feature-card-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .feature-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* Integrations */
+    .integrations-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+    .integration-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all var(--transition);
+    }
+    .integration-badge:hover {
+      border-color: var(--primary-subtle);
+      box-shadow: var(--shadow-sm);
+    }
+    .integration-badge-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary-bg);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    .google-btn { width:100%; padding:12px; border:1.5px solid var(--border); border-radius:var(--radius); font-size:.9rem; font-weight:600; color:var(--text-secondary); background:white; cursor:pointer; transition:all var(--transition); display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:8px; }
+    .google-btn:hover { border-color:var(--primary); box-shadow:0 2px 12px rgba(0,0,0,0.06); transform:translateY(-1px); }
+    .google-btn:active { transform:scale(0.98); }
+    .google-btn:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
+    .login-divider { display:flex; align-items:center; gap:16px; margin:16px 0; color:var(--text-lighter); font-size:.8rem; }
+    .login-divider::before, .login-divider::after { content:''; flex:1; height:1px; background:var(--border); }
+    .forgot-link { font-size:.8rem; color:var(--text-lighter); text-decoration:none; transition:color .2s; }
+    .forgot-link:hover { color:var(--primary); }
+    .spinner-sm { display:inline-block; width:18px; height:18px; border:2px solid #e2e8f0; border-top-color:var(--primary); border-radius:50%; animation:spin .6s linear infinite; }
+    @keyframes spin { to { transform:rotate(360deg); } }
   </style>
 </head>
 <body>
-  <!-- NAVBAR -->
+
+  <!-- ========== NAVBAR ========== -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="/" class="nav-logo">
-        <div class="logo-icon">ZH</div>
-        Zeeshan Hospital
+        <img src="assets/logo.png" alt="Zeeshan Hospital" style="height:36px;width:auto;">
+        <span style="font-weight:800;font-size:1.15rem;">Zeeshan Hospital</span>
       </a>
       <div class="nav-links" id="navLinks">
         <a href="features.html" class="active">Features</a>
         <a href="pricing.html">Pricing</a>
         <a href="about.html">About</a>
         <a href="index.html#contact">Contact</a>
-        <div class="dropdown" style="display:inline-block;">
-          <button class="btn btn-sm btn-outline" style="font-size:0.8rem;padding:6px 12px;" onclick="this.nextElementSibling.classList.toggle('active')">Portals &#9662;</button>
-          <div class="dropdown-menu" style="min-width:160px;">
+        <div class="dropdown">
+          <button class="btn btn-sm btn-outline" onclick="this.nextElementSibling.classList.toggle('active')">Portals &#9662;</button>
+          <div class="dropdown-menu">
             <a href="#" onclick="showAuth('patient')">&#129485; Patient Portal</a>
             <a href="#" onclick="showAuth('doctor')">&#128137; Doctor Portal</a>
             <a href="#" onclick="showAuth('pharmacy')">&#127974; Pharmacy Portal</a>
             <a href="#" onclick="showAuth('lab')">&#128300; Lab Portal</a>
-            <div class="dropdown-divider"></div>
-            <a href="#" onclick="adminLogin()">&#9881; Admin Access</a>
           </div>
         </div>
-        <a href="#" onclick="openDemoModal()" class="btn btn-sm btn-outline" style="font-size:0.8rem;padding:6px 16px;">Demo</a>
-        <a href="#" onclick="showAuth('patient')" class="btn btn-sm btn-primary" style="font-size:0.8rem;padding:6px 16px;">Get Started</a>
+        <a href="#" onclick="openDemoModal()" class="btn btn-sm btn-ghost">Book a Demo</a>
+        <a href="#" onclick="showAuth('patient')" class="btn btn-sm btn-primary">Get Started</a>
       </div>
-      <button class="hamburger" onclick="toggleMenu()">
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="features-hero scroll-section">
+  <!-- ========== HERO ========== -->
+  <section class="page-hero scroll-section animate-on-scroll">
     <div class="container">
       <h1>Everything You Need to Run Your Healthcare Practice</h1>
       <p>A complete suite of tools designed for patients, doctors, pharmacies, and labs — all in one platform.</p>
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section class="feature-showcase scroll-section" style="padding:80px 0;background:#fff;">
-    <div class="container" style="max-width:1100px;margin:0 auto;padding:0 1.5rem;">
+  <!-- ========== FEATURES ========== -->
+  <section style="padding:80px 0;background:var(--bg);">
+    <div class="container" style="max-width:1100px;">
 
       <!-- For Patients -->
-      <div class="feature-category">
+      <div class="feature-category scroll-section animate-on-scroll">
         <h3>&#129485; For Patients</h3>
         <div class="feature-grid">
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128197;</div><div class="feature-grid-title">Online Appointment Booking</div><div class="feature-grid-desc">Book appointments with specialists in seconds. Choose your preferred date, time, and doctor from available slots.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128252;</div><div class="feature-grid-title">Video Consultations</div><div class="feature-grid-desc">Connect with doctors via HD video calls from the comfort of your home. Recording and screen sharing supported.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#9998;</div><div class="feature-grid-title">Digital Prescriptions</div><div class="feature-grid-desc">Receive e-prescriptions directly to your account. Printable, shareable, and integrated with partner pharmacies.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128300;</div><div class="feature-grid-title">Lab Test Booking</div><div class="feature-grid-desc">Book lab tests online. Choose home collection or visit a partner lab. Get digital reports within hours.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128666;</div><div class="feature-grid-title">Medicine Ordering</div><div class="feature-grid-desc">Order prescribed medicines and get them delivered to your doorstep. Real-time tracking and automatic refills.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128196;</div><div class="feature-grid-title">Medical Records Access</div><div class="feature-grid-desc">Secure cloud storage for all your health records. Access your complete medical history anytime, anywhere.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128197;</div><div class="feature-card-title">Online Appointment Booking</div><div class="feature-card-desc">Skip the wait. Book your visit in seconds, from anywhere.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128252;</div><div class="feature-card-title">Video Consultations</div><div class="feature-card-desc">Expert care without leaving home. Your doctor is a tap away.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#9998;</div><div class="feature-card-title">Digital Prescriptions</div><div class="feature-card-desc">Your prescription travels with you. Never lose a paper script again.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128300;</div><div class="feature-card-title">Lab Test Booking</div><div class="feature-card-desc">Walk in, get tested, walk out. No forms, no delays.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128666;</div><div class="feature-card-title">Medicine Ordering</div><div class="feature-card-desc">Meds show up at your door. Refilling isn't your job anymore.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128196;</div><div class="feature-card-title">Medical Records Access</div><div class="feature-card-desc">Your entire health history in your pocket. Own your data, own your care.</div></div>
         </div>
       </div>
 
       <!-- For Doctors -->
-      <div class="feature-category">
+      <div class="feature-category scroll-section animate-on-scroll">
         <h3>&#128137; For Doctors</h3>
         <div class="feature-grid">
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128101;</div><div class="feature-grid-title">Patient Management</div><div class="feature-grid-desc">Comprehensive patient profiles with medical history, prescriptions, lab results, and appointment tracking.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#9998;</div><div class="feature-grid-title">E-Prescriptions</div><div class="feature-grid-desc">Write digital prescriptions with medication suggestions, dosage calculators, and direct pharmacy integration.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128252;</div><div class="feature-grid-title">Video Consultations</div><div class="feature-grid-desc">Conduct secure HD video consultations with patients. Built-in note-taking and prescription tools.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128200;</div><div class="feature-grid-title">Practice Analytics</div><div class="feature-grid-desc">Real-time insights on patient volume, revenue, no-show rates, and clinical outcomes.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128197;</div><div class="feature-grid-title">Schedule Management</div><div class="feature-grid-desc">Manage your availability, block time slots, and handle appointment requests efficiently.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128221;</div><div class="feature-grid-title">Clinical Notes</div><div class="feature-grid-desc">SOAP notes, voice-to-text dictation, templated assessments, and secure storage for every patient encounter.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128101;</div><div class="feature-card-title">Patient Management</div><div class="feature-card-desc">Less paperwork, more face time. Every patient at a glance.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#9998;</div><div class="feature-card-title">E-Prescriptions</div><div class="feature-card-desc">Prescribe in seconds. Your patients get what they need, instantly.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128252;</div><div class="feature-card-title">Video Consultations</div><div class="feature-card-desc">Extend your care beyond the clinic walls. See patients wherever they are.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128200;</div><div class="feature-card-title">Practice Analytics</div><div class="feature-card-desc">Know what's working. Grow your practice with data that makes sense.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128197;</div><div class="feature-card-title">Schedule Management</div><div class="feature-card-desc">No double-booking, no gaps, no stress. Your calendar, perfectly organized.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128221;</div><div class="feature-card-title">Clinical Notes</div><div class="feature-card-desc">Notes that write themselves. Focus on patients, not keyboards.</div></div>
         </div>
       </div>
 
       <!-- For Pharmacies -->
-      <div class="feature-category">
+      <div class="feature-category scroll-section animate-on-scroll">
         <h3>&#127974; For Pharmacies</h3>
         <div class="feature-grid">
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128221;</div><div class="feature-grid-title">Prescription Management</div><div class="feature-grid-desc">Receive digital prescriptions directly from doctors. Verify, process, and dispense with a single click.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128202;</div><div class="feature-grid-title">Inventory Tracking</div><div class="feature-grid-desc">Real-time inventory management with batch tracking, expiry alerts, and supplier management.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128230;</div><div class="feature-grid-title">Order Fulfillment</div><div class="feature-grid-desc">Streamlined order processing with pick-pack-ship workflow and delivery partner integration.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128276;</div><div class="feature-grid-title">Low Stock Alerts</div><div class="feature-grid-desc">Automated alerts when stock falls below threshold. Never run out of essential medicines.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128200;</div><div class="feature-grid-title">Reporting</div><div class="feature-grid-desc">Detailed reports on sales, popular medications, expiry analysis, and revenue trends.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128221;</div><div class="feature-card-title">Prescription Management</div><div class="feature-card-desc">Prescriptions arrive clean, organized, ready to fill. No more deciphering handwriting.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128202;</div><div class="feature-card-title">Inventory Tracking</div><div class="feature-card-desc">Know exactly what's on your shelves. Never say "out of stock" again.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128230;</div><div class="feature-card-title">Order Fulfillment</div><div class="feature-card-desc">From order to delivery in record time. Happy patients, repeat business.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128276;</div><div class="feature-card-title">Low Stock Alerts</div><div class="feature-card-desc">Get warned before you run out. Running out means letting people down.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128200;</div><div class="feature-card-title">Reporting & Analytics</div><div class="feature-card-desc">See what sells and when. Stock smarter, profit more.</div></div>
         </div>
       </div>
 
       <!-- For Labs -->
-      <div class="feature-category">
+      <div class="feature-category scroll-section animate-on-scroll">
         <h3>&#128300; For Labs</h3>
         <div class="feature-grid">
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128196;</div><div class="feature-grid-title">Test Request Management</div><div class="feature-grid-desc">Receive and manage test requests from doctors. Track sample status from collection to reporting.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128228;</div><div class="feature-grid-title">Result Upload</div><div class="feature-grid-desc">Upload test results in multiple formats. Automated PDF generation and doctor notification.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#127968;</div><div class="feature-grid-title">Home Collection Scheduling</div><div class="feature-grid-desc">Schedule phlebotomist visits for home collection. Route optimization and real-time tracking.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128200;</div><div class="feature-grid-title">Patient Reports</div><div class="feature-grid-desc">Generate comprehensive patient reports with historical comparisons and reference ranges.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#9989;</div><div class="feature-grid-title">Quality Control</div><div class="feature-grid-desc">Built-in QC tracking, proficiency testing management, and accreditation documentation support.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128196;</div><div class="feature-card-title">Test Request Management</div><div class="feature-card-desc">Requests come in clean and clear. No more phone tag or lost forms.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128228;</div><div class="feature-card-title">Result Upload</div><div class="feature-card-desc">Upload once. Results reach the right doctor instantly.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#127968;</div><div class="feature-card-title">Home Collection Scheduling</div><div class="feature-card-desc">Offer at-home collections without the headache. Schedule, dispatch, done.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128200;</div><div class="feature-card-title">Patient Reports</div><div class="feature-card-desc">Reports patients and doctors can actually read. Beautiful, clear, instant.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#9989;</div><div class="feature-card-title">Quality Control</div><div class="feature-card-desc">Catch errors before they reach anyone. Because accuracy is everything.</div></div>
         </div>
       </div>
 
       <!-- Platform Features -->
-      <div class="feature-category">
+      <div class="feature-category scroll-section animate-on-scroll">
         <h3>&#9881; Platform Features</h3>
         <div class="feature-grid">
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128737;</div><div class="feature-grid-title">HIPAA Compliant Security</div><div class="feature-grid-desc">Enterprise-grade security with 256-bit encryption, access controls, and regular security audits.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128274;</div><div class="feature-grid-title">Role-Based Access</div><div class="feature-grid-desc">Granular permissions for patients, doctors, pharmacists, lab technicians, and administrators.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128214;</div><div class="feature-grid-title">Audit Logging</div><div class="feature-grid-desc">Complete audit trail of all system activities for compliance and security monitoring.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128279;</div><div class="feature-grid-title">API Access</div><div class="feature-grid-desc">RESTful API for custom integrations. Comprehensive documentation and SDK support.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128241;</div><div class="feature-grid-title">Mobile Responsive</div><div class="feature-grid-desc">Fully responsive design that works seamlessly on desktop, tablet, and mobile devices.</div></div>
-          <div class="feature-grid-card"><div class="feature-grid-icon">&#128222;</div><div class="feature-grid-title">24/7 Support</div><div class="feature-grid-desc">Round-the-clock customer support via phone, email, and live chat. Enterprise customers get a dedicated manager.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128737;</div><div class="feature-card-title">HIPAA Compliant Security</div><div class="feature-card-desc">Your data is safer than a bank vault. Certifications to prove it.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128274;</div><div class="feature-card-title">Role-Based Access</div><div class="feature-card-desc">Everyone sees exactly what they need. Nothing more, nothing less.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128214;</div><div class="feature-card-title">Audit Logging</div><div class="feature-card-desc">Every action tracked, every record accounted for. Sleep soundly.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128279;</div><div class="feature-card-title">API Access</div><div class="feature-card-desc">Zeeshan Hospital plays nice with your existing tools. No rebuilds, no headaches.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128241;</div><div class="feature-card-title">Mobile Responsive</div><div class="feature-card-desc">Flawless on every screen. Clinic, home, or on the go.</div></div>
+          <div class="feature-card"><div class="feature-card-icon">&#128222;</div><div class="feature-card-title">24/7 Support</div><div class="feature-card-desc">Help is always awake, always ready. Never wait for an answer.</div></div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- INTEGRATIONS -->
-  <section class="integrations-section scroll-section">
+  <!-- ========== INTEGRATIONS ========== -->
+  <section class="section scroll-section animate-on-scroll" style="background:var(--bg-alt);">
     <div class="container">
-      <div class="integrations-header">
+      <div class="section-title-wrapper text-center">
         <h2 class="section-title">Works with Your Favorite Tools</h2>
-        <p class="section-desc">Zeeshan Hospital integrates seamlessly with the tools you already use.</p>
+        <p class="section-subtitle text-center">Zeeshan Hospital integrates seamlessly with the tools you already use.</p>
       </div>
       <div class="integrations-grid">
-        <div class="integration-badge ehr"><span class="integration-badge-icon">E</span> Epic EHR</div>
-        <div class="integration-badge ehr"><span class="integration-badge-icon">C</span> Cerner</div>
-        <div class="integration-badge ehr"><span class="integration-badge-icon">M</span> Meditech</div>
-        <div class="integration-badge ehr"><span class="integration-badge-icon">P</span> Practice Fusion</div>
-        <div class="integration-badge zapier"><span class="integration-badge-icon">Z</span> Zapier</div>
-        <div class="integration-badge slack"><span class="integration-badge-icon">S</span> Slack</div>
-        <div class="integration-badge twilio"><span class="integration-badge-icon">T</span> Twilio</div>
-        <div class="integration-badge stripe"><span class="integration-badge-icon">S</span> Stripe</div>
-        <div class="integration-badge api"><span class="integration-badge-icon">API</span> REST API</div>
-        <div class="integration-more">+ 50+ More Integrations</div>
+        <span class="integration-badge"><span class="integration-badge-icon">E</span> Epic EHR</span>
+        <span class="integration-badge"><span class="integration-badge-icon">C</span> Cerner</span>
+        <span class="integration-badge"><span class="integration-badge-icon">M</span> Meditech</span>
+        <span class="integration-badge"><span class="integration-badge-icon">P</span> Practice Fusion</span>
+        <span class="integration-badge"><span class="integration-badge-icon">Z</span> Zapier</span>
+        <span class="integration-badge"><span class="integration-badge-icon">S</span> Slack</span>
+        <span class="integration-badge"><span class="integration-badge-icon">T</span> Twilio</span>
+        <span class="integration-badge"><span class="integration-badge-icon">S</span> Stripe</span>
+        <span class="integration-badge"><span class="integration-badge-icon">API</span> REST API</span>
+        <span class="integration-badge" style="border-style:dashed;color:var(--text-lighter);">+ 50+ More</span>
       </div>
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <section class="cta-section scroll-section" style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));">
-    <div class="cta-floating cta-floating-1"></div>
-    <div class="cta-floating cta-floating-2"></div>
-    <div class="cta-floating cta-floating-3"></div>
-    <div class="cta-content">
-      <span class="cta-label">Get Started Today</span>
-      <h2 class="cta-title">Ready to get started?</h2>
-      <p class="cta-desc">Join thousands of healthcare providers already using Zeeshan Hospital to transform their practice.</p>
-      <div class="cta-buttons">
-        <a href="#" onclick="showAuth('patient')" class="cta-btn-primary">Start Free Trial <span class="arrow">&#8594;</span></a>
-        <a href="#" onclick="openDemoModal()" class="cta-btn-secondary">Book a Demo</a>
+  <!-- ========== CTA ========== -->
+  <section class="section cta-section scroll-section animate-on-scroll">
+    <div class="container">
+      <h2>Ready to Transform Your Practice?</h2>
+      <p>Join thousands of healthcare providers already using Zeeshan Hospital.</p>
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);margin-bottom:32px;">No credit card required. Free 14-day trial.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="#" onclick="showAuth('patient')" class="btn btn-white btn-xl">Start Free Trial</a>
+        <a href="#" onclick="openDemoModal()" class="btn btn-outline btn-xl" style="border-color:rgba(255,255,255,0.3);color:white;">Book a Demo</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ========== FOOTER ========== -->
   <footer class="footer" id="contact">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo"><div class="logo-icon">ZH</div> Zeeshan Hospital</div>
+          <div class="footer-logo"><img src="assets/logo.png" alt="Zeeshan Hospital" style="height:32px;width:auto;"> Zeeshan Hospital</div>
           <p>Complete digital healthcare ecosystem connecting patients, doctors, pharmacies, and testing facilities. Your health, our mission.</p>
-          <div style="display:flex;gap:12px;margin-top:16px;">
-            <a href="#" style="width:36px;height:36px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;color:#94a3b8;">&#120143;</a>
-            <a href="#" style="width:36px;height:36px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;color:#94a3b8;">&#120156;</a>
-            <a href="#" style="width:36px;height:36px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;color:#94a3b8;">&#120157;</a>
-            <a href="#" style="width:36px;height:36px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;color:#94a3b8;">&#120146;</a>
+          <div class="footer-social">
+            <a href="#" aria-label="Twitter">&#120143;</a>
+            <a href="#" aria-label="LinkedIn">&#120156;</a>
+            <a href="#" aria-label="Facebook">&#120157;</a>
+            <a href="#" aria-label="Instagram">&#120146;</a>
           </div>
         </div>
         <div><h4>Product</h4><div class="footer-links"><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="#">Integrations</a><a href="#">API</a></div></div>
@@ -193,95 +325,110 @@
       <div class="footer-bottom">
         <span>&copy; 2026 Zeeshan Hospital. All rights reserved. Made with &#10084;&#65039; for better healthcare.</span>
         <div class="footer-bottom-links">
-          <a href="#" onclick="adminLogin()" style="font-size:0.75rem;">Admin</a>
+          <a href="#" onclick="adminLogin()" style="font-size:0.72rem;opacity:0.4;">Admin</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- AUTH MODAL -->
+  <!-- ========== AUTH MODAL ========== -->
   <div class="modal" id="authModal">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 id="authTitle">Login</h3>
+        <h3 id="authTitle">Sign In</h3>
         <button class="modal-close" onclick="closeModal('authModal')">&times;</button>
       </div>
-      <div id="authHint" style="text-align:center;font-size:0.85rem;color:var(--text-light);margin-bottom:16px;padding:8px;background:#f0fdfa;border-radius:6px;">
-        Demo: <strong>ahmed@test.com</strong> / <strong>123</strong>
-      </div>
-      <div id="authBody">
-        <div class="form-group"><label>Email</label><input type="email" id="authEmail" placeholder="Enter your email" autocomplete="off"></div>
-        <div class="form-group"><label>Password</label><input type="password" id="authPass" placeholder="Enter your password" autocomplete="off"></div>
-        <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="handleLogin()">Sign In</button>
-        <p style="text-align:center;margin-top:12px;font-size:0.85rem;color:var(--text-light);" id="authToggleText">Don't have an account? <a href="#" style="color:var(--primary);font-weight:600;" onclick="showRegister(event)">Register</a></p>
-      </div>
-      <div id="registerBody" style="display:none;">
-        <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Enter your full name"></div>
-        <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="Enter your email"></div>
-        <div class="form-group"><label>Password</label><input type="password" id="regPass" placeholder="Create a password"></div>
-        <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="handleRegister()">Create Account</button>
-        <p style="text-align:center;margin-top:12px;font-size:0.85rem;color:var(--text-light);">Already have an account? <a href="#" style="color:var(--primary);font-weight:600;" onclick="showLogin(event)">Sign In</a></p>
+      <div class="modal-body">
+        <div id="authHint" style="display:none;"></div>
+        <div id="authBody">
+          <button class="google-btn" id="googleModalBtn" onclick="handleGoogleSignIn()">
+            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            Sign in with Google
+          </button>
+          <div class="login-divider">or sign in with email</div>
+          <div class="form-group"><label>Email</label><input type="email" id="authEmail" placeholder="Enter your email" autocomplete="email"></div>
+          <div class="form-group"><label>Password</label><input type="password" id="authPass" placeholder="Enter your password" autocomplete="current-password"></div>
+          <div style="text-align:right;margin-top:-8px;margin-bottom:12px;">
+            <a href="#" class="forgot-link" onclick="handleForgotPassword(event)">Forgot password?</a>
+          </div>
+          <button class="btn btn-primary btn-block" onclick="handleLogin()">Sign In</button>
+          <p style="text-align:center;margin-top:14px;font-size:0.85rem;color:var(--text-light);" id="authToggleText">Don't have an account? <a href="#" style="color:var(--primary);font-weight:600;" onclick="showRegister(event)">Register</a></p>
+        </div>
+        <div id="registerBody" style="display:none;">
+          <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Enter your full name" autocomplete="name"></div>
+          <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="Enter your email" autocomplete="email"></div>
+          <div class="form-group"><label>Password</label><input type="password" id="regPass" placeholder="Create a password (8+ chars, uppercase + number)" autocomplete="new-password"></div>
+          <button class="btn btn-primary btn-block" onclick="handleRegister()">Create Account</button>
+          <p style="text-align:center;margin-top:14px;font-size:0.85rem;color:var(--text-light);">Already have an account? <a href="#" style="color:var(--primary);font-weight:600;" onclick="showLogin(event)">Sign In</a></p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- DEMO MODAL -->
+  <!-- ========== DEMO MODAL ========== -->
   <div class="modal demo-modal" id="demoModal">
     <div class="modal-content">
       <div class="modal-header">
         <h3>Book a Demo</h3>
         <button class="modal-close" onclick="closeModal('demoModal')">&times;</button>
       </div>
-      <p style="font-size:0.88rem;color:#64748b;margin-bottom:20px;">Fill in your details and we'll schedule a personalized demo for your practice.</p>
-      <div class="form-row">
-        <div class="form-group"><label>Full Name</label><input type="text" id="demoName" placeholder="John Doe"></div>
-        <div class="form-group"><label>Email</label><input type="email" id="demoEmail" placeholder="john@practice.com"></div>
+      <div class="modal-body">
+        <p style="font-size:0.9rem;color:var(--text-light);margin-bottom:20px;">Fill in your details and we'll schedule a personalized demo for your practice.</p>
+        <div class="form-row">
+          <div class="form-group"><label>Full Name</label><input type="text" id="demoName" placeholder="John Doe"></div>
+          <div class="form-group"><label>Email</label><input type="email" id="demoEmail" placeholder="john@practice.com"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone</label><input type="tel" id="demoPhone" placeholder="+92 300 1234567"></div>
+          <div class="form-group"><label>Company</label><input type="text" id="demoCompany" placeholder="Your practice name"></div>
+        </div>
+        <div class="form-group"><label>Practice Size</label><select id="demoSize"><option value="">Select size</option><option>1-5 doctors</option><option>6-25 doctors</option><option>26-100 doctors</option><option>100+ doctors</option></select></div>
+        <div class="glass" style="border-radius:var(--radius);padding:16px;margin-bottom:20px;text-align:center;">
+          <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:4px;"><strong>Available Time Slots</strong></p>
+          <p style="font-size:0.8rem;color:var(--text-lighter);">Mon-Fri: 9:00 AM – 6:00 PM PKT</p>
+          <p style="font-size:0.8rem;color:var(--text-lighter);">Next available: Tomorrow at 10:00 AM</p>
+        </div>
+        <button class="btn btn-primary btn-block" onclick="submitDemo()">Schedule Demo</button>
       </div>
-      <div class="form-row">
-        <div class="form-group"><label>Phone</label><input type="tel" id="demoPhone" placeholder="+92 300 1234567"></div>
-        <div class="form-group"><label>Company</label><input type="text" id="demoCompany" placeholder="Your practice name"></div>
-      </div>
-      <div class="form-group"><label>Practice Size</label><select id="demoSize"><option value="">Select size</option><option>1-5 doctors</option><option>6-25 doctors</option><option>26-100 doctors</option><option>100+ doctors</option></select></div>
-      <div style="background:#f8fafc;border-radius:10px;padding:16px;margin-bottom:16px;text-align:center;">
-        <p style="font-size:0.85rem;color:#64748b;margin-bottom:4px;"><strong>Available Time Slots</strong></p>
-        <p style="font-size:0.78rem;color:#94a3b8;">Mon-Fri: 9:00 AM – 6:00 PM PKT</p>
-        <p style="font-size:0.78rem;color:#94a3b8;">Next available: Tomorrow at 10:00 AM</p>
-      </div>
-      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="showToast('Thank you! We will contact you within 24 hours.', 'success');closeModal('demoModal');">Schedule Demo</button>
     </div>
   </div>
 
-  <!-- TOAST -->
+  <!-- ========== TOAST ========== -->
   <div class="toast" id="toast"></div>
 
-  <!-- CHAT WIDGET -->
+  <!-- ========== CHAT ========== -->
   <div class="chat-widget">
     <div class="chat-window" id="chatWindow">
       <div class="chat-header"><span>&#128172; Zeeshan Hospital Chat</span><button onclick="toggleChat()">&times;</button></div>
       <div class="chat-body" id="chatBody">
         <div class="chat-msg bot">&#128075; Hi there! How can we help you today?</div>
         <div class="chat-options">
-          <button onclick="chatReply('Tell me about pricing')">&#128176; Tell me about pricing</button>
+          <button onclick="chatReply('Tell me about pricing')">&#128176; Pricing</button>
           <button onclick="chatReply('Book a demo')">&#128197; Book a demo</button>
-          <button onclick="chatReply('How to get started?')">&#128640; How to get started?</button>
-          <button onclick="chatReply('Technical support')">&#128295; Technical support</button>
+          <button onclick="chatReply('How to get started?')">&#128640; Get started</button>
+          <button onclick="chatReply('Technical support')">&#128295; Support</button>
         </div>
       </div>
     </div>
     <button class="chat-bubble" id="chatBubble" onclick="toggleChat()">&#128172;</button>
   </div>
 
-  <!-- COOKIE CONSENT -->
+  <!-- ========== COOKIE ========== -->
   <div class="cookie-bar" id="cookieBar">
     <span>We use cookies to improve your experience. By continuing, you agree to our use of cookies.</span>
-    <div style="display:flex;gap:8px;">
+    <div style="display:flex;gap:8px;flex-shrink:0;">
       <button class="btn btn-sm btn-outline" style="color:white;border-color:#475569;" onclick="hideCookie()">Cookie Settings</button>
       <button class="btn btn-sm btn-primary" onclick="hideCookie()">Accept All</button>
     </div>
   </div>
 
-  <!-- BACK TO TOP -->
-  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+  <!-- ========== BACK TO TOP ========== -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
 
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
@@ -289,80 +436,70 @@
   <script src="js/firebase-config.js"></script>
   <script src="js/main.js"></script>
   <script>
-    async function adminLogin() {
-      try {
-        await auth.signInWithEmailAndPassword('admin@zh.com', '123456');
-        await fetchDB();
-        var u = { id:'ADMIN', name:'Admin', email:'admin@zh.com', role:'admin' };
-        localStorage.setItem('zh_token', 'admin');
-        localStorage.setItem('zh_user', JSON.stringify(u));
-        localStorage.setItem('zh_role', 'admin');
-        localStorage.setItem('zh_login_time', Date.now().toString());
-        window.location.href = 'admin.html';
-      } catch(e) { showToast('Login failed: ' + e.message,'error'); }
-    }
-
-    // Chat widget
     function toggleChat() {
-      document.getElementById('chatWindow').classList.toggle('open');
-      document.getElementById('chatBubble').style.display = document.getElementById('chatWindow').classList.contains('open') ? 'none' : 'flex';
+      var w = document.getElementById('chatWindow');
+      w.classList.toggle('open');
+      document.getElementById('chatBubble').style.display = w.classList.contains('open') ? 'none' : 'flex';
     }
     function chatReply(msg) {
-      const body = document.getElementById('chatBody');
-      body.innerHTML += '<div class="chat-msg user">' + msg + '</div>';
-      let reply = '';
-      if (msg.includes('pricing')) reply = 'Our plans start at $199/mo. We have Starter, Professional ($499/mo) and Enterprise (custom). Would you like me to book a demo to discuss?';
-      else if (msg.includes('demo')) reply = 'Absolutely! Click the "Get Started" button above or fill out the demo form to schedule a personalized walkthrough.';
-      else if (msg.includes('started')) reply = 'Getting started is easy! Click "Start Free Trial" and create your account. You\'ll get full access for 14 days with no credit card needed.';
-      else if (msg.includes('support')) reply = 'Our support team is available 24/7. You can reach us at support@zeeshanhospital.com or call +92 300 1234567.';
-      else reply = 'Thanks for your message! Our team will get back to you shortly. For immediate help, call +92 300 1234567.';
-      setTimeout(() => {
-        body.innerHTML += '<div class="chat-msg bot">' + reply + '</div>';
+      var body = document.getElementById('chatBody');
+      var userMsg = document.createElement('div');
+      userMsg.className = 'chat-msg user';
+      userMsg.textContent = msg;
+      body.appendChild(userMsg);
+      var reply = '';
+      if (msg.indexOf('pricing') !== -1) reply = 'Our plans start at $199/mo. We have Starter, Professional ($499/mo) and Enterprise (custom). Would you like me to book a demo to discuss?';
+      else if (msg.indexOf('demo') !== -1) reply = 'Absolutely! Click the "Get Started" button above or fill out the demo form to schedule a personalized walkthrough.';
+      else if (msg.indexOf('started') !== -1) reply = 'Getting started is easy! Click "Start Free Trial" and create your account. You\'ll get full access for 14 days with no credit card needed.';
+      else if (msg.indexOf('support') !== -1) reply = 'Our support team is available 24/7. You can reach us at support@zeeshanhospital.com or call +92 300 1234567.';
+      else reply = 'Thanks for your message! Our team will get back to you shortly.';
+      setTimeout(function() {
+        var botMsg = document.createElement('div');
+        botMsg.className = 'chat-msg bot';
+        botMsg.textContent = reply;
+        body.appendChild(botMsg);
         body.scrollTop = body.scrollHeight;
-        if (!document.getElementById('chatWindow').classList.contains('open')) toggleChat();
       }, 600);
       body.scrollTop = body.scrollHeight;
     }
-
     function openDemoModal() { document.getElementById('demoModal').classList.add('active'); }
+    function submitDemo() {
+      var name = document.getElementById('demoName').value.trim();
+      var email = document.getElementById('demoEmail').value.trim();
+      if (!name || !email) { showToast('Please fill in name and email', 'error'); return; }
+      showToast('Thank you! We will contact you within 24 hours.', 'success');
+      closeModal('demoModal');
+    }
     function hideCookie() {
       document.getElementById('cookieBar').classList.remove('show');
       localStorage.setItem('zh_cookie_consent', 'true');
     }
     if (!localStorage.getItem('zh_cookie_consent')) {
-      setTimeout(() => document.getElementById('cookieBar').classList.add('show'), 1000);
+      setTimeout(function() { document.getElementById('cookieBar').classList.add('show'); }, 1000);
     }
 
-    // Back to top & navbar scroll
+    // Navbar & scroll effects
     window.addEventListener('scroll', function() {
-      const btn = document.getElementById('backToTop');
+      var btn = document.getElementById('backToTop');
       if (window.scrollY > 500) btn.classList.add('show'); else btn.classList.remove('show');
-      const nav = document.getElementById('navbar');
+      var nav = document.getElementById('navbar');
       if (window.scrollY > 50) nav.classList.add('nav-scrolled'); else nav.classList.remove('nav-scrolled');
     });
 
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', function(e) {
-        const id = this.getAttribute('href');
-        if (id && id.length > 1 && document.querySelector(id)) {
-          e.preventDefault();
-          document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-
-    // Scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    // Scroll animations (re-triggerable)
+    var scrollObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+        else entry.target.classList.remove('visible');
       });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.scroll-section').forEach(el => observer.observe(el));
+    document.querySelectorAll('.scroll-section.animate-on-scroll').forEach(function(el) {
+      scrollObserver.observe(el);
+    });
 
     // Close modals on outside click
     document.addEventListener('click', function(e) {
-      document.querySelectorAll('.modal.active').forEach(m => {
+      document.querySelectorAll('.modal.active').forEach(function(m) {
         if (e.target === m) closeModal(m.id);
       });
     });

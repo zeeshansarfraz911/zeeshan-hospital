@@ -3,258 +3,314 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing - Zeeshan Hospital</title>
-  <meta name="description" content="Simple, transparent pricing for your healthcare practice. Start free, upgrade when you grow.">
+  <title>Pricing — Zeeshan Hospital | Simple, Transparent Plans</title>
+  <meta name="description" content="Start free, upgrade as you grow. Simple pricing for your healthcare practice with no hidden fees.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="canonical" href="https://zeeshan-hospital.vercel.app/pricing.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Pricing — Zeeshan Hospital | Simple, Transparent Plans">
+  <meta property="og:description" content="Start free, upgrade as you grow. Simple pricing for your healthcare practice with no hidden fees.">
+  <meta property="og:image" content="https://zeeshan-hospital.vercel.app/assets/logo.png">
+  <meta property="og:url" content="https://zeeshan-hospital.vercel.app/pricing.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zeeshan Hospital">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing — Zeeshan Hospital | Simple, Transparent Plans">
+  <meta name="twitter:description" content="Start free, upgrade as you grow. Simple pricing for your healthcare practice with no hidden fees.">
+  <meta name="twitter:image" content="https://zeeshan-hospital.vercel.app/assets/logo.png">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/business.css">
   <style>
-    :root { --primary: #0d9488; --primary-dark: #0f766e; --primary-light: #14b8a6; --primary-lighter: #5eead4; --primary-subtle: #ccfbf1; --primary-bg: #f0fdfa; --secondary: #0284c7; --accent: #f59e0b; }
-    .scroll-section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .scroll-section.visible { opacity: 1; transform: translateY(0); }
-    .nav-scrolled { background: rgba(255,255,255,0.95) !important; backdrop-filter: blur(12px) !important; box-shadow: 0 1px 8px rgba(0,0,0,0.08) !important; }
-    .pricing-hero { padding: 140px 0 60px; background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 40%, #e0f2fe 100%); position: relative; overflow: hidden; text-align: center; }
-    .pricing-hero h1 { font-size: 2.8rem; font-weight: 800; color: var(--text); margin-bottom: 12px; }
-    .pricing-hero p { font-size: 1.1rem; color: var(--text-light); max-width: 500px; margin: 0 auto; }
-    .pricing-hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(13,148,136,0.08) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
-    .features-hero { padding: 140px 0 60px; background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 40%, #e0f2fe 100%); position: relative; overflow: hidden; text-align: center; }
-    .features-hero h1 { font-size: 2.8rem; font-weight: 800; color: var(--text); margin-bottom: 12px; }
-    .features-hero p { font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
-    .about-hero { padding: 140px 0 60px; background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 40%, #e0f2fe 100%); position: relative; overflow: hidden; text-align: center; }
-    .about-hero h1 { font-size: 2.8rem; font-weight: 800; color: var(--text); margin-bottom: 12px; }
-    .about-hero p { font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 0 auto; }
-    .feature-category { margin-bottom: 48px; }
-    .feature-category h3 { font-size: 1.4rem; font-weight: 700; color: var(--text); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-    .feature-category h3::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .value-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 32px 24px; text-align: center; transition: all 0.3s ease; }
-    .value-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); border-color: var(--primary-light); }
-    .value-card .value-icon { width: 60px; height: 60px; border-radius: 50%; background: rgba(13,148,136,0.08); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 1.5rem; color: var(--primary); }
-    .value-card:hover .value-icon { background: var(--primary); color: #fff; }
-    .value-card h4 { font-size: 1.05rem; margin-bottom: 8px; }
-    .value-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; }
-    .story-section { padding: 80px 0; background: #fff; }
-    .story-section .container { max-width: 800px; text-align: center; }
-    .story-section h2 { font-size: 2rem; font-weight: 800; margin-bottom: 20px; }
-    .story-section p { font-size: 1.05rem; color: var(--text-light); line-height: 1.8; }
-    .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; }
-    .mission-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 28px; text-align: center; transition: all 0.3s ease; }
-    .mission-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); border-color: var(--primary-light); }
-    .mission-card .m-icon { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 1.4rem; }
-    .mission-card:nth-child(1) .m-icon { background: #d1fae5; color: #059669; }
-    .mission-card:nth-child(2) .m-icon { background: #dbeafe; color: #2563eb; }
-    .mission-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
-    .mission-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
-    .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
-    @media (max-width: 992px) { .values-grid { grid-template-columns: repeat(2, 1fr); } .mission-grid { grid-template-columns: 1fr; } }
-    @media (max-width: 768px) { .pricing-hero h1, .features-hero h1, .about-hero h1 { font-size: 2rem; } .values-grid { grid-template-columns: 1fr; } }
+    .page-hero {
+      padding: 140px 0 60px;
+      background: linear-gradient(135deg, var(--primary-bg), var(--primary-subtle) 40%, #e0f2fe 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -20%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(13,148,136,0.1) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .page-hero h1 { margin-bottom: 16px; }
+    .page-hero p { font-size: 1.1rem; max-width: 500px; margin: 0 auto; }
+
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 40px 32px;
+      text-align: center;
+      transition: all var(--transition);
+      position: relative;
+      transform-style: preserve-3d;
+    }
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .pricing-card.featured {
+      border: 2px solid var(--primary);
+      box-shadow: var(--shadow-glow);
+    }
+    .pricing-card.featured:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 4px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .pricing-price { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; }
+    .pricing-period { color: var(--text-lighter); font-size: 0.9rem; }
+
+    .value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .value-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+      transition: all var(--transition);
+    }
+    .value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--primary-subtle); }
+    .value-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--primary-bg); color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px; font-size: 1.4rem;
+      transition: all var(--transition);
+    }
+    .value-card:hover .value-icon { background: var(--primary); color: white; transform: scale(1.1); }
+    .value-card h4 { font-size: 1rem; margin-bottom: 6px; }
+    .value-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
+    .google-btn { width:100%; padding:12px; border:1.5px solid var(--border); border-radius:var(--radius); font-size:.9rem; font-weight:600; color:var(--text-secondary); background:white; cursor:pointer; transition:all var(--transition); display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:8px; }
+    .google-btn:hover { border-color:var(--primary); box-shadow:0 2px 12px rgba(0,0,0,0.06); transform:translateY(-1px); }
+    .google-btn:active { transform:scale(0.98); }
+    .google-btn:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
+    .login-divider { display:flex; align-items:center; gap:16px; margin:16px 0; color:var(--text-lighter); font-size:.8rem; }
+    .login-divider::before, .login-divider::after { content:''; flex:1; height:1px; background:var(--border); }
+    .forgot-link { font-size:.8rem; color:var(--text-lighter); text-decoration:none; transition:color .2s; }
+    .forgot-link:hover { color:var(--primary); }
+    .spinner-sm { display:inline-block; width:18px; height:18px; border:2px solid #e2e8f0; border-top-color:var(--primary); border-radius:50%; animation:spin .6s linear infinite; }
+    @keyframes spin { to { transform:rotate(360deg); } }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I switch plans later?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, you can upgrade or downgrade your plan at any time. Changes take effect at the start of the next billing cycle."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a long-term contract?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All plans are month-to-month. You can cancel anytime with no penalties."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What payment methods do you accept?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We accept all major credit cards, debit cards, and bank transfers. Enterprise plans also support invoice-based billing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer discounts for annual billing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, annual billing gives you 2 months free compared to monthly billing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I add more doctors or staff?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, the Team and Enterprise plans allow additional users. Contact our sales team for custom pricing."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <!-- NAVBAR -->
+
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="/" class="nav-logo">
-        <div class="logo-icon">ZH</div>
-        Zeeshan Hospital
+        <img src="assets/logo.png?v=2" alt="Zeeshan Hospital" style="height:36px;width:auto;">
+        <span style="font-weight:800;font-size:1.15rem;">Zeeshan Hospital</span>
       </a>
       <div class="nav-links" id="navLinks">
         <a href="features.html">Features</a>
         <a href="pricing.html" class="active">Pricing</a>
         <a href="about.html">About</a>
         <a href="index.html#contact">Contact</a>
-        <div class="dropdown" style="display:inline-block;">
-          <button class="btn btn-sm btn-outline" style="font-size:0.8rem;padding:6px 12px;" onclick="this.nextElementSibling.classList.toggle('active')">Portals &#9662;</button>
-          <div class="dropdown-menu" style="min-width:160px;">
+        <div class="dropdown">
+          <button class="btn btn-sm btn-outline" onclick="this.nextElementSibling.classList.toggle('active')">Portals &#9662;</button>
+          <div class="dropdown-menu">
             <a href="#" onclick="showAuth('patient')">&#129485; Patient Portal</a>
             <a href="#" onclick="showAuth('doctor')">&#128137; Doctor Portal</a>
             <a href="#" onclick="showAuth('pharmacy')">&#127974; Pharmacy Portal</a>
             <a href="#" onclick="showAuth('lab')">&#128300; Lab Portal</a>
-            <div class="dropdown-divider"></div>
-            <a href="#" onclick="adminLogin()">&#9881; Admin Access</a>
           </div>
         </div>
-        <a href="#" onclick="openDemoModal()" class="btn btn-sm btn-outline" style="font-size:0.8rem;padding:6px 16px;">Demo</a>
-        <a href="#" onclick="showAuth('patient')" class="btn btn-sm btn-primary" style="font-size:0.8rem;padding:6px 16px;">Get Started</a>
+        <a href="#" onclick="openDemoModal()" class="btn btn-sm btn-ghost">Book a Demo</a>
+        <a href="#" onclick="showAuth('patient')" class="btn btn-sm btn-primary">Get Started</a>
       </div>
-      <button class="hamburger" onclick="toggleMenu()">
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="pricing-hero scroll-section">
+  <section class="page-hero scroll-section animate-on-scroll">
     <div class="container">
       <h1>Simple, Transparent Pricing</h1>
-      <p>Start free, upgrade when you grow. No hidden fees, no surprises.</p>
+      <p>Choose the plan that fits your practice. Start free, upgrade anytime.</p>
     </div>
   </section>
 
-  <!-- PRICING SECTION -->
-  <section class="pricing-section scroll-section" style="background:#fff;" id="pricing">
+  <!-- Pricing Toggle -->
+  <section style="padding:60px 0 0;background:var(--bg);">
     <div class="container">
       <div class="pricing-toggle">
-        <span class="pricing-toggle-label active" id="toggleMonthly" onclick="setPricing('monthly')">Monthly</span>
-        <div class="pricing-toggle-switch active" id="pricingSwitch" onclick="togglePricing()"></div>
-        <span class="pricing-toggle-label" id="toggleYearly" onclick="setPricing('yearly')">Yearly <span class="pricing-savings-badge">Save 20%</span></span>
+        <label id="toggleMonthly" onclick="setPricing('monthly')">Monthly</label>
+        <div class="toggle-switch" id="pricingSwitch" onclick="togglePricing()"></div>
+        <label id="toggleYearly" onclick="setPricing('yearly')">Yearly <span class="save-badge">Save 20%</span></label>
       </div>
-
-      <div class="pricing-grid">
+      <div class="pricing-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1000px;margin:0 auto;">
         <!-- Starter -->
         <div class="pricing-card">
-          <div class="pricing-card-header">
-            <div class="pricing-tier-name">Starter</div>
-            <div class="pricing-tier-desc">For small practices</div>
-            <div class="pricing-amount">
-              <span class="pricing-currency">$</span>
-              <span class="pricing-value" id="starterPrice">199</span>
-              <span class="pricing-period" id="starterPeriod">/mo</span>
-            </div>
-          </div>
-          <ul class="pricing-features">
-            <li><span class="check-icon">&#10003;</span> Up to 5 doctors</li>
-            <li><span class="check-icon">&#10003;</span> Up to 500 patients</li>
-            <li><span class="check-icon">&#10003;</span> Basic analytics</li>
-            <li><span class="check-icon">&#10003;</span> Email support</li>
-            <li><span class="check-icon">&#10003;</span> 2GB storage</li>
+          <h3 style="margin-bottom:4px;">Starter</h3>
+          <p style="color:var(--text-light);margin-bottom:20px;">For small practices</p>
+          <div class="pricing-price" id="starterPrice">$199</div>
+          <div class="pricing-period" id="starterPeriod">/mo</div>
+          <ul class="pricing-features" style="margin-top:20px;text-align:left;display:flex;flex-direction:column;gap:10px;font-size:0.88rem;color:var(--text-light);">
+            <li>&#10003; Up to 5 doctors</li>
+            <li>&#10003; Up to 500 patients</li>
+            <li>&#10003; Basic analytics</li>
+            <li>&#10003; Email support</li>
+            <li class="disabled" style="color:var(--text-muted);">&#10007; API access</li>
+            <li class="disabled" style="color:var(--text-muted);">&#10007; Custom branding</li>
           </ul>
-          <a href="#" onclick="showAuth('patient')" class="pricing-cta">Start Free Trial</a>
+          <a href="#" onclick="showAuth('patient')" class="btn btn-outline btn-block">Start Free Trial</a>
         </div>
-
         <!-- Professional (Featured) -->
         <div class="pricing-card featured">
           <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-card-header">
-            <div class="pricing-tier-name">Professional</div>
-            <div class="pricing-tier-desc">For growing practices</div>
-            <div class="pricing-amount">
-              <span class="pricing-currency">$</span>
-              <span class="pricing-value" id="proPrice">499</span>
-              <span class="pricing-period" id="proPeriod">/mo</span>
-            </div>
-          </div>
-          <ul class="pricing-features">
-            <li><span class="check-icon">&#10003;</span> Up to 25 doctors</li>
-            <li><span class="check-icon">&#10003;</span> Up to 5,000 patients</li>
-            <li><span class="check-icon">&#10003;</span> Advanced analytics</li>
-            <li><span class="check-icon">&#10003;</span> Priority support</li>
-            <li><span class="check-icon">&#10003;</span> API access</li>
-            <li><span class="check-icon">&#10003;</span> Custom branding</li>
-            <li><span class="check-icon">&#10003;</span> 50GB storage</li>
+          <h3 style="margin-bottom:4px;color:var(--primary);">Professional</h3>
+          <p style="color:var(--text-light);margin-bottom:20px;">For growing practices</p>
+          <div class="pricing-price" id="proPrice">$499</div>
+          <div class="pricing-period" id="proPeriod">/mo</div>
+          <ul class="pricing-features" style="margin-top:20px;text-align:left;display:flex;flex-direction:column;gap:10px;font-size:0.88rem;color:var(--text-light);">
+            <li>&#10003; Up to 25 doctors</li>
+            <li>&#10003; Up to 5,000 patients</li>
+            <li>&#10003; Advanced analytics</li>
+            <li>&#10003; Priority support</li>
+            <li>&#10003; API access</li>
+            <li>&#10003; Custom branding</li>
           </ul>
-          <a href="#" onclick="showAuth('patient')" class="pricing-cta featured-cta">Start Free Trial</a>
+          <a href="#" onclick="showAuth('patient')" class="btn btn-primary btn-block">Start Free Trial</a>
         </div>
-
         <!-- Enterprise -->
         <div class="pricing-card">
-          <div class="pricing-card-header">
-            <div class="pricing-tier-name">Enterprise</div>
-            <div class="pricing-tier-desc">For large organizations</div>
-            <div class="pricing-amount">
-              <span class="pricing-value" style="font-size:2.5rem;">Custom</span>
-            </div>
-          </div>
-          <ul class="pricing-features">
-            <li><span class="check-icon">&#10003;</span> Unlimited doctors</li>
-            <li><span class="check-icon">&#10003;</span> Unlimited patients</li>
-            <li><span class="check-icon">&#10003;</span> Full analytics suite</li>
-            <li><span class="check-icon">&#10003;</span> Dedicated support manager</li>
-            <li><span class="check-icon">&#10003;</span> White label</li>
-            <li><span class="check-icon">&#10003;</span> On-premise option</li>
-            <li><span class="check-icon">&#10003;</span> SLA guarantee</li>
-            <li><span class="check-icon">&#10003;</span> Custom integrations</li>
+          <h3 style="margin-bottom:4px;">Enterprise</h3>
+          <p style="color:var(--text-light);margin-bottom:20px;">For large organizations</p>
+          <div class="pricing-price" style="font-size:2rem;">Custom</div>
+          <ul class="pricing-features" style="margin-top:20px;text-align:left;display:flex;flex-direction:column;gap:10px;font-size:0.88rem;color:var(--text-light);">
+            <li>&#10003; Unlimited doctors</li>
+            <li>&#10003; Unlimited patients</li>
+            <li>&#10003; Full analytics suite</li>
+            <li>&#10003; Dedicated support manager</li>
+            <li>&#10003; White label options</li>
+            <li>&#10003; On-premise available</li>
           </ul>
-          <a href="#" onclick="openDemoModal()" class="pricing-cta outline">Contact Sales</a>
+          <a href="#" onclick="openDemoModal()" class="btn btn-outline btn-block">Contact Sales</a>
         </div>
       </div>
-
-      <p class="pricing-footnote">&#128170; All plans include a 14-day free trial. No credit card required. <a href="#" onclick="openDemoModal()">Schedule a demo</a> to learn more.</p>
+      <p style="text-align:center;margin-top:24px;font-size:0.88rem;color:var(--text-light);">&#128170; All plans include a 14-day free trial. No credit card required.</p>
     </div>
   </section>
 
-  <!-- COMPARISON TABLE -->
-  <section class="comparison-section scroll-section">
+  <!-- Value Add -->
+  <section class="section scroll-section animate-on-scroll" style="background:var(--bg-alt);">
     <div class="container">
-      <div class="comparison-header">
-        <h2 class="section-title">Compare Plans in Detail</h2>
-        <p class="section-desc">Every feature you need to make an informed decision.</p>
+      <div class="section-title-wrapper text-center">
+        <h2 class="section-title">Why Healthcare Providers Choose Us</h2>
       </div>
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>Starter</th>
-            <th class="featured-col">Professional</th>
-            <th>Enterprise</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Doctors</td><td>Up to 5</td><td class="featured-col">Up to 25</td><td>Unlimited</td></tr>
-          <tr><td>Patients</td><td>Up to 500</td><td class="featured-col">Up to 5,000</td><td>Unlimited</td></tr>
-          <tr><td>Storage</td><td>2GB</td><td class="featured-col">50GB</td><td>Unlimited</td></tr>
-          <tr><td>Analytics</td><td>Basic</td><td class="featured-col">Advanced</td><td>Full suite</td></tr>
-          <tr><td>Support</td><td>Email</td><td class="featured-col">Priority</td><td>Dedicated manager</td></tr>
-          <tr><td>API Access</td><td><span class="cross-cell">&#10007;</span></td><td class="featured-col"><span class="check-cell">&#10003;</span></td><td><span class="check-cell">&#10003;</span></td></tr>
-          <tr><td>Custom Branding</td><td><span class="cross-cell">&#10007;</span></td><td class="featured-col"><span class="check-cell">&#10003;</span></td><td><span class="check-cell">&#10003;</span></td></tr>
-          <tr><td>White Label</td><td><span class="cross-cell">&#10007;</span></td><td class="featured-col"><span class="cross-cell">&#10007;</span></td><td><span class="check-cell">&#10003;</span></td></tr>
-          <tr><td>On-Premise Option</td><td><span class="cross-cell">&#10007;</span></td><td class="featured-col"><span class="cross-cell">&#10007;</span></td><td><span class="check-cell">&#10003;</span></td></tr>
-          <tr><td>SLA Guarantee</td><td><span class="cross-cell">&#10007;</span></td><td class="featured-col"><span class="cross-cell">&#10007;</span></td><td><span class="check-cell">&#10003;</span></td></tr>
-          <tr><td>Custom Integrations</td><td><span class="cross-cell">&#10007;</span></td><td class="featured-col"><span class="cross-cell">&#10007;</span></td><td><span class="check-cell">&#10003;</span></td></tr>
-          <tr><td>HIPAA Compliance</td><td><span class="check-cell">&#10003;</span></td><td class="featured-col"><span class="check-cell">&#10003;</span></td><td><span class="check-cell">&#10003;</span></td></tr>
-          <tr><td>Audit Logging</td><td><span class="cross-cell">&#10007;</span></td><td class="featured-col"><span class="check-cell">&#10003;</span></td><td><span class="check-cell">&#10003;</span></td></tr>
-          <tr><td>24/7 Support</td><td><span class="cross-cell">&#10007;</span></td><td class="featured-col"><span class="check-cell">&#10003;</span></td><td><span class="check-cell">&#10003;</span></td></tr>
-        </tbody>
-      </table>
+      <div class="value-grid">
+        <div class="value-card"><div class="value-icon">&#128274;</div><h4>HIPAA Compliant</h4><p>Enterprise-grade security with 256-bit encryption. Your data is safer than a bank vault.</p></div>
+        <div class="value-card"><div class="value-icon">&#9889;</div><h4>99.99% Uptime</h4><p>SLA-backed availability. Your practice never stops with our enterprise infrastructure.</p></div>
+        <div class="value-card"><div class="value-icon">&#128222;</div><h4>24/7 Support</h4><p>Help is always awake. Phone, email, and live chat — plus a dedicated manager for Enterprise.</p></div>
+        <div class="value-card"><div class="value-icon">&#128279;</div><h4>API Access</h4><p>Integrates with Epic, Cerner, Zapier, and 50+ tools you already use. No rebuilds needed.</p></div>
+      </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="faq-section scroll-section">
+  <section class="section scroll-section animate-on-scroll" style="background:var(--bg-card);">
     <div class="container">
-      <div class="faq-header">
+      <div class="section-title-wrapper text-center">
         <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-desc">Everything you need to know about Zeeshan Hospital pricing.</p>
+        <p class="section-subtitle text-center">Everything you need to know about our plans</p>
       </div>
-      <div class="faq-list" id="faqContainer">
-        <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">What is Zeeshan Hospital?<span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-content">Zeeshan Hospital is a complete digital healthcare ecosystem that connects patients, doctors, pharmacies, and labs in one seamless platform. We provide video consultations, e-prescriptions, medicine delivery, lab test booking, and comprehensive practice management tools.</div></div></div>
-        <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">How do I get started?<span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-content">Simply click the "Start Free Trial" button, create your account, and you'll have full access to all features for 14 days. No credit card required. Our onboarding team will guide you through the setup process.</div></div></div>
-        <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Is my data secure?<span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-content">Absolutely. We are HIPAA compliant and GDPR ready. All data is encrypted with 256-bit SSL, stored on AWS cloud infrastructure, and we maintain ISO 27001 certification for information security management.</div></div></div>
-        <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Can I integrate with my existing EHR?<span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-content">Yes, Zeeshan Hospital offers robust API access and pre-built integrations with major EHR systems including Epic, Cerner, and Meditech. Our integration team will ensure a smooth transition.</div></div></div>
-        <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Do you offer training?<span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-content">Yes, all plans include onboarding training for your team. Professional and Enterprise plans come with dedicated training sessions, comprehensive documentation, and video tutorials for every feature.</div></div></div>
-        <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">What payment methods do you accept?<span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-content">We accept all major credit cards (Visa, Mastercard, Amex), bank transfers, and digital wallets. Enterprise customers can opt for invoice-based quarterly or annual billing.</div></div></div>
-        <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Can I cancel anytime?<span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-content">Yes, you can cancel your subscription at any time. There are no long-term contracts or cancellation fees. Your data will remain accessible for 30 days after cancellation.</div></div></div>
-        <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Do you have a mobile app?<span class="faq-toggle">+</span></button><div class="faq-answer"><div class="faq-answer-content">Yes, Zeeshan Hospital offers native mobile apps for iOS and Android. Patients can book appointments, join video calls, and access records. Doctors can manage their practice on the go.</div></div></div>
+      <div class="faq-list" style="max-width:700px;margin:0 auto;">
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I switch plans later?<span class="icon">&#9660;</span></div><div class="faq-a">Yes, you can upgrade or downgrade at any time. When upgrading, you get immediate access to new features. Downgrades take effect at the next billing cycle.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is there a contract?<span class="icon">&#9660;</span></div><div class="faq-a">No long-term contracts. All plans are month-to-month. Enterprise plans can choose annual billing for additional savings.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What payment methods do you accept?<span class="icon">&#9660;</span></div><div class="faq-a">All major credit cards (Visa, Mastercard, Amex), bank transfers, and digital wallets. Enterprise customers can opt for invoice-based billing.</div></div>
+        <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do you offer discounts for non-profits?<span class="icon">&#9660;</span></div><div class="faq-a">Yes, we offer special pricing for non-profit healthcare organizations and government institutions. Contact our sales team for details.</div></div>
       </div>
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <section class="cta-section scroll-section">
-    <div class="cta-floating cta-floating-1"></div>
-    <div class="cta-floating cta-floating-2"></div>
-    <div class="cta-floating cta-floating-3"></div>
-    <div class="cta-content">
-      <span class="cta-label">Get Started Today</span>
-      <h2 class="cta-title">Start your 14-day free trial</h2>
-      <p class="cta-desc">No credit card required. No commitments. Cancel anytime.</p>
-      <div class="cta-buttons">
-        <a href="#" onclick="showAuth('patient')" class="cta-btn-primary">Start Free Trial <span class="arrow">&#8594;</span></a>
-        <a href="#" onclick="openDemoModal()" class="cta-btn-secondary">Book a Demo</a>
-      </div>
+  <!-- CTA -->
+  <section class="section cta-section scroll-section animate-on-scroll">
+    <div class="container">
+      <h2>Ready to Transform Your Practice?</h2>
+      <p>Join thousands of healthcare providers already using Zeeshan Hospital.</p>
+      <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);margin-bottom:32px;">Start your free 14-day trial. No credit card needed.</p>
+      <a href="#" onclick="showAuth('patient')" class="btn btn-white btn-xl">Start Free Trial</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer" id="contact">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo"><div class="logo-icon">ZH</div> Zeeshan Hospital</div>
+          <div class="footer-logo"><img src="assets/logo.png?v=2" alt="Zeeshan Hospital" style="height:32px;width:auto;"> Zeeshan Hospital</div>
           <p>Complete digital healthcare ecosystem connecting patients, doctors, pharmacies, and testing facilities. Your health, our mission.</p>
-          <div style="display:flex;gap:12px;margin-top:16px;">
-            <a href="#" style="width:36px;height:36px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;color:#94a3b8;">&#120143;</a>
-            <a href="#" style="width:36px;height:36px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;color:#94a3b8;">&#120156;</a>
-            <a href="#" style="width:36px;height:36px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;color:#94a3b8;">&#120157;</a>
-            <a href="#" style="width:36px;height:36px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;color:#94a3b8;">&#120146;</a>
+          <div class="footer-social">
+            <a href="#" aria-label="Twitter">&#120143;</a>
+            <a href="#" aria-label="LinkedIn">&#120156;</a>
+            <a href="#" aria-label="Facebook">&#120157;</a>
+            <a href="#" aria-label="Instagram">&#120146;</a>
           </div>
         </div>
         <div><h4>Product</h4><div class="footer-links"><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="#">Integrations</a><a href="#">API</a></div></div>
@@ -265,95 +321,101 @@
       <div class="footer-bottom">
         <span>&copy; 2026 Zeeshan Hospital. All rights reserved. Made with &#10084;&#65039; for better healthcare.</span>
         <div class="footer-bottom-links">
-          <a href="#" onclick="adminLogin()" style="font-size:0.75rem;">Admin</a>
+          <a href="#" onclick="adminLogin()" style="font-size:0.72rem;opacity:0.4;">Admin</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- AUTH MODAL -->
+  <!-- Modals -->
   <div class="modal" id="authModal">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 id="authTitle">Login</h3>
+        <h3 id="authTitle">Sign In</h3>
         <button class="modal-close" onclick="closeModal('authModal')">&times;</button>
       </div>
-      <div id="authHint" style="text-align:center;font-size:0.85rem;color:var(--text-light);margin-bottom:16px;padding:8px;background:#f0fdfa;border-radius:6px;">
-        Demo: <strong>ahmed@test.com</strong> / <strong>123</strong>
-      </div>
-      <div id="authBody">
-        <div class="form-group"><label>Email</label><input type="email" id="authEmail" placeholder="Enter your email" autocomplete="off"></div>
-        <div class="form-group"><label>Password</label><input type="password" id="authPass" placeholder="Enter your password" autocomplete="off"></div>
-        <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="handleLogin()">Sign In</button>
-        <p style="text-align:center;margin-top:12px;font-size:0.85rem;color:var(--text-light);" id="authToggleText">Don't have an account? <a href="#" style="color:var(--primary);font-weight:600;" onclick="showRegister(event)">Register</a></p>
-      </div>
-      <div id="registerBody" style="display:none;">
-        <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Enter your full name"></div>
-        <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="Enter your email"></div>
-        <div class="form-group"><label>Password</label><input type="password" id="regPass" placeholder="Create a password"></div>
-        <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="handleRegister()">Create Account</button>
-        <p style="text-align:center;margin-top:12px;font-size:0.85rem;color:var(--text-light);">Already have an account? <a href="#" style="color:var(--primary);font-weight:600;" onclick="showLogin(event)">Sign In</a></p>
+      <div class="modal-body">
+        <div id="authHint" style="display:none;"></div>
+        <div id="authBody">
+          <button class="google-btn" id="googleModalBtn" onclick="handleGoogleSignIn()">
+            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            Sign in with Google
+          </button>
+          <div class="login-divider">or sign in with email</div>
+          <div class="form-group"><label>Email</label><input type="email" id="authEmail" placeholder="Enter your email" autocomplete="email"></div>
+          <div class="form-group"><label>Password</label><input type="password" id="authPass" placeholder="Enter your password" autocomplete="current-password"></div>
+          <div style="text-align:right;margin-top:-8px;margin-bottom:12px;">
+            <a href="#" class="forgot-link" onclick="handleForgotPassword(event)">Forgot password?</a>
+          </div>
+          <button class="btn btn-primary btn-block" onclick="handleLogin()">Sign In</button>
+          <p style="text-align:center;margin-top:14px;font-size:0.85rem;color:var(--text-light);" id="authToggleText">Don't have an account? <a href="#" style="color:var(--primary);font-weight:600;" onclick="showRegister(event)">Register</a></p>
+        </div>
+        <div id="registerBody" style="display:none;">
+          <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Enter your full name" autocomplete="name"></div>
+          <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="Enter your email" autocomplete="email"></div>
+          <div class="form-group"><label>Password</label><input type="password" id="regPass" placeholder="Create a password (8+ chars, uppercase + number)" autocomplete="new-password"></div>
+          <button class="btn btn-primary btn-block" onclick="handleRegister()">Create Account</button>
+          <p style="text-align:center;margin-top:14px;font-size:0.85rem;color:var(--text-light);">Already have an account? <a href="#" style="color:var(--primary);font-weight:600;" onclick="showLogin(event)">Sign In</a></p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- DEMO MODAL -->
   <div class="modal demo-modal" id="demoModal">
     <div class="modal-content">
       <div class="modal-header">
         <h3>Book a Demo</h3>
         <button class="modal-close" onclick="closeModal('demoModal')">&times;</button>
       </div>
-      <p style="font-size:0.88rem;color:#64748b;margin-bottom:20px;">Fill in your details and we'll schedule a personalized demo for your practice.</p>
-      <div class="form-row">
-        <div class="form-group"><label>Full Name</label><input type="text" id="demoName" placeholder="John Doe"></div>
-        <div class="form-group"><label>Email</label><input type="email" id="demoEmail" placeholder="john@practice.com"></div>
+      <div class="modal-body">
+        <p style="font-size:0.9rem;color:var(--text-light);margin-bottom:20px;">Fill in your details and we'll schedule a personalized demo for your practice.</p>
+        <div class="form-row">
+          <div class="form-group"><label>Full Name</label><input type="text" id="demoName" placeholder="John Doe"></div>
+          <div class="form-group"><label>Email</label><input type="email" id="demoEmail" placeholder="john@practice.com"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone</label><input type="tel" id="demoPhone" placeholder="+92 300 1234567"></div>
+          <div class="form-group"><label>Company</label><input type="text" id="demoCompany" placeholder="Your practice name"></div>
+        </div>
+        <div class="form-group"><label>Practice Size</label><select id="demoSize"><option value="">Select size</option><option>1-5 doctors</option><option>6-25 doctors</option><option>26-100 doctors</option><option>100+ doctors</option></select></div>
+        <div class="glass" style="border-radius:var(--radius);padding:16px;margin-bottom:20px;text-align:center;">
+          <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:4px;"><strong>Available Time Slots</strong></p>
+          <p style="font-size:0.8rem;color:var(--text-lighter);">Mon-Fri: 9:00 AM – 6:00 PM PKT</p>
+        </div>
+        <button class="btn btn-primary btn-block" onclick="submitDemo()">Schedule Demo</button>
       </div>
-      <div class="form-row">
-        <div class="form-group"><label>Phone</label><input type="tel" id="demoPhone" placeholder="+92 300 1234567"></div>
-        <div class="form-group"><label>Company</label><input type="text" id="demoCompany" placeholder="Your practice name"></div>
-      </div>
-      <div class="form-group"><label>Practice Size</label><select id="demoSize"><option value="">Select size</option><option>1-5 doctors</option><option>6-25 doctors</option><option>26-100 doctors</option><option>100+ doctors</option></select></div>
-      <div style="background:#f8fafc;border-radius:10px;padding:16px;margin-bottom:16px;text-align:center;">
-        <p style="font-size:0.85rem;color:#64748b;margin-bottom:4px;"><strong>Available Time Slots</strong></p>
-        <p style="font-size:0.78rem;color:#94a3b8;">Mon-Fri: 9:00 AM – 6:00 PM PKT</p>
-        <p style="font-size:0.78rem;color:#94a3b8;">Next available: Tomorrow at 10:00 AM</p>
-      </div>
-      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="showToast('Thank you! We will contact you within 24 hours.', 'success');closeModal('demoModal');">Schedule Demo</button>
     </div>
   </div>
 
-  <!-- TOAST -->
   <div class="toast" id="toast"></div>
-
-  <!-- CHAT WIDGET -->
   <div class="chat-widget">
     <div class="chat-window" id="chatWindow">
-      <div class="chat-header"><span>&#128172; Zeeshan Hospital Chat</span><button onclick="toggleChat()">&times;</button></div>
+      <div class="chat-header"><span>&#128172; Chat</span><button onclick="toggleChat()">&times;</button></div>
       <div class="chat-body" id="chatBody">
-        <div class="chat-msg bot">&#128075; Hi there! How can we help you today?</div>
+        <div class="chat-msg bot">&#128075; How can we help?</div>
         <div class="chat-options">
-          <button onclick="chatReply('Tell me about pricing')">&#128176; Tell me about pricing</button>
-          <button onclick="chatReply('Book a demo')">&#128197; Book a demo</button>
-          <button onclick="chatReply('How to get started?')">&#128640; How to get started?</button>
-          <button onclick="chatReply('Technical support')">&#128295; Technical support</button>
+          <button onclick="chatReply('Pricing')">&#128176; Pricing</button>
+          <button onclick="chatReply('Demo')">&#128197; Book demo</button>
+          <button onclick="chatReply('Getting started')">&#128640; Get started</button>
+          <button onclick="chatReply('Support')">&#128295; Support</button>
         </div>
       </div>
     </div>
     <button class="chat-bubble" id="chatBubble" onclick="toggleChat()">&#128172;</button>
   </div>
-
-  <!-- COOKIE CONSENT -->
   <div class="cookie-bar" id="cookieBar">
-    <span>We use cookies to improve your experience. By continuing, you agree to our use of cookies.</span>
-    <div style="display:flex;gap:8px;">
-      <button class="btn btn-sm btn-outline" style="color:white;border-color:#475569;" onclick="hideCookie()">Cookie Settings</button>
-      <button class="btn btn-sm btn-primary" onclick="hideCookie()">Accept All</button>
+    <span>We use cookies to improve your experience.</span>
+    <div style="display:flex;gap:8px;flex-shrink:0;">
+      <button class="btn btn-sm btn-outline" style="color:white;border-color:#475569;" onclick="hideCookie()">Settings</button>
+      <button class="btn btn-sm btn-primary" onclick="hideCookie()">Accept</button>
     </div>
   </div>
-
-  <!-- BACK TO TOP -->
-  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&#8593;</button>
 
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
@@ -361,120 +423,62 @@
   <script src="js/firebase-config.js"></script>
   <script src="js/main.js"></script>
   <script>
-    async function adminLogin() {
-      try {
-        await auth.signInWithEmailAndPassword('admin@zh.com', '123456');
-        await fetchDB();
-        var u = { id:'ADMIN', name:'Admin', email:'admin@zh.com', role:'admin' };
-        localStorage.setItem('zh_token', 'admin');
-        localStorage.setItem('zh_user', JSON.stringify(u));
-        localStorage.setItem('zh_role', 'admin');
-        localStorage.setItem('zh_login_time', Date.now().toString());
-        window.location.href = 'admin.html';
-      } catch(e) { showToast('Login failed: ' + e.message,'error'); }
-    }
-
-    // FAQ Accordion
-    function toggleFaq(el) {
-      const item = el.parentElement;
-      item.classList.toggle('active');
-      const icon = el.querySelector('.faq-toggle');
-      if (item.classList.contains('active')) icon.textContent = '&#215;'; else icon.textContent = '+';
-    }
-
-    // Pricing toggle
-    let pricingYearly = true;
+    var pricingYearly = true;
     function togglePricing() {
-      pricingYearly = !pricingYearly;
-      updatePricing();
+      pricingYearly = !pricingYearly; updatePricing();
       document.getElementById('pricingSwitch').classList.toggle('active');
       document.getElementById('toggleMonthly').classList.toggle('active');
       document.getElementById('toggleYearly').classList.toggle('active');
     }
     function setPricing(mode) {
-      pricingYearly = mode === 'yearly';
-      updatePricing();
+      pricingYearly = mode === 'yearly'; updatePricing();
       document.getElementById('pricingSwitch').classList.toggle('active', pricingYearly);
       document.getElementById('toggleMonthly').classList.toggle('active', !pricingYearly);
       document.getElementById('toggleYearly').classList.toggle('active', pricingYearly);
     }
     function updatePricing() {
-      const sp = document.getElementById('starterPrice');
-      const sPer = document.getElementById('starterPeriod');
-      const pp = document.getElementById('proPrice');
-      const pPer = document.getElementById('proPeriod');
-      if (pricingYearly) {
-        sp.textContent = '159'; sPer.textContent = '/mo (billed annually)';
-        pp.textContent = '399'; pPer.textContent = '/mo (billed annually)';
-      } else {
-        sp.textContent = '199'; sPer.textContent = '/mo';
-        pp.textContent = '499'; pPer.textContent = '/mo';
-      }
+      var s = document.getElementById('starterPrice'), sp = document.getElementById('starterPeriod');
+      var p = document.getElementById('proPrice'), pp = document.getElementById('proPeriod');
+      if (pricingYearly) { s.textContent = '$159'; sp.textContent = '/mo billed annually'; p.textContent = '$399'; pp.textContent = '/mo billed annually'; }
+      else { s.textContent = '$199'; sp.textContent = '/mo'; p.textContent = '$499'; pp.textContent = '/mo'; }
     }
+    setPricing('yearly');
 
-    // Chat widget
     function toggleChat() {
-      document.getElementById('chatWindow').classList.toggle('open');
-      document.getElementById('chatBubble').style.display = document.getElementById('chatWindow').classList.contains('open') ? 'none' : 'flex';
+      var w = document.getElementById('chatWindow');
+      w.classList.toggle('open');
+      document.getElementById('chatBubble').style.display = w.classList.contains('open') ? 'none' : 'flex';
     }
     function chatReply(msg) {
-      const body = document.getElementById('chatBody');
-      body.innerHTML += '<div class="chat-msg user">' + msg + '</div>';
-      let reply = '';
-      if (msg.includes('pricing')) reply = 'Our plans start at $199/mo. We have Starter, Professional ($499/mo) and Enterprise (custom). Would you like me to book a demo to discuss?';
-      else if (msg.includes('demo')) reply = 'Absolutely! Click the "Get Started" button above or fill out the demo form to schedule a personalized walkthrough.';
-      else if (msg.includes('started')) reply = 'Getting started is easy! Click "Start Free Trial" and create your account. You\'ll get full access for 14 days with no credit card needed.';
-      else if (msg.includes('support')) reply = 'Our support team is available 24/7. You can reach us at support@zeeshanhospital.com or call +92 300 1234567.';
-      else reply = 'Thanks for your message! Our team will get back to you shortly. For immediate help, call +92 300 1234567.';
-      setTimeout(() => {
-        body.innerHTML += '<div class="chat-msg bot">' + reply + '</div>';
-        body.scrollTop = body.scrollHeight;
-        if (!document.getElementById('chatWindow').classList.contains('open')) toggleChat();
+      var body = document.getElementById('chatBody');
+      var u = document.createElement('div'); u.className = 'chat-msg user'; u.textContent = msg; body.appendChild(u);
+      var replies = { pricing: 'Plans start at $199/mo. Free 14-day trial.', demo: 'Click "Get Started" or the demo form to schedule.', started: 'Free 14-day trial. No credit card needed.', support: '24/7 at support@zeeshanhospital.com' };
+      var reply = replies[Object.keys(replies).find(k => msg.toLowerCase().indexOf(k) !== -1)] || 'Our team will get back to you shortly.';
+      setTimeout(function() {
+        var b = document.createElement('div'); b.className = 'chat-msg bot'; b.textContent = reply; body.appendChild(b); body.scrollTop = body.scrollHeight;
       }, 600);
       body.scrollTop = body.scrollHeight;
     }
-
     function openDemoModal() { document.getElementById('demoModal').classList.add('active'); }
-    function hideCookie() {
-      document.getElementById('cookieBar').classList.remove('show');
-      localStorage.setItem('zh_cookie_consent', 'true');
+    function submitDemo() {
+      if (!document.getElementById('demoName').value.trim() || !document.getElementById('demoEmail').value.trim()) { return showToast('Please fill in name and email', 'error'); }
+      showToast('Thank you! We will contact you within 24 hours.', 'success');
+      closeModal('demoModal');
     }
-    if (!localStorage.getItem('zh_cookie_consent')) {
-      setTimeout(() => document.getElementById('cookieBar').classList.add('show'), 1000);
-    }
-
-    // Back to top
+    function hideCookie() { document.getElementById('cookieBar').classList.remove('show'); localStorage.setItem('zh_cookie_consent', 'true'); }
+    if (!localStorage.getItem('zh_cookie_consent')) { setTimeout(function() { document.getElementById('cookieBar').classList.add('show'); }, 1000); }
     window.addEventListener('scroll', function() {
-      const btn = document.getElementById('backToTop');
+      var btn = document.getElementById('backToTop');
       if (window.scrollY > 500) btn.classList.add('show'); else btn.classList.remove('show');
-      const nav = document.getElementById('navbar');
+      var nav = document.getElementById('navbar');
       if (window.scrollY > 50) nav.classList.add('nav-scrolled'); else nav.classList.remove('nav-scrolled');
     });
-
-    // Smooth scroll for nav links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', function(e) {
-        const id = this.getAttribute('href');
-        if (id && id.length > 1 && document.querySelector(id)) {
-          e.preventDefault();
-          document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-
-    // Intersection Observer for scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
-      });
+    var scrollObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); else e.target.classList.remove('visible'); });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.scroll-section').forEach(el => observer.observe(el));
-
-    // Close modals on outside click
+    document.querySelectorAll('.scroll-section.animate-on-scroll').forEach(function(el) { scrollObserver.observe(el); });
     document.addEventListener('click', function(e) {
-      document.querySelectorAll('.modal.active').forEach(m => {
-        if (e.target === m) closeModal(m.id);
-      });
+      document.querySelectorAll('.modal.active').forEach(function(m) { if (e.target === m) closeModal(m.id); });
     });
   </script>
 </body>

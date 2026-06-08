@@ -1,1 +1,7 @@
-{ "github": { "silent": true } }
+{
+  "github": { "silent": true },
+  "framework": null,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "trailingSlash": false
+}
