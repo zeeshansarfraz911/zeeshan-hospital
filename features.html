@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Features — Zeeshan Hospital | Complete Healthcare Platform</title>
-  <meta name="description" content="Everything you need to run your healthcare practice — patient management, video consultations, e-prescriptions, lab integration and more.">
+  <title>Hospital Features — Patient Management, Telemedicine & Lab Integration | Zeeshan Hospital Lahore</title>
+  <meta name="description" content="Discover the Zeeshan Hospital healthcare platform: patient management, video consultations, e-prescriptions, lab integration, and digital health records. Serving Lahore with world-class medical technology.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,17 +12,29 @@
   <link rel="apple-touch-icon" href="assets/logo.png">
   <link rel="canonical" href="https://zeeshan-hospital.vercel.app/features.html">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Features — Zeeshan Hospital | Complete Healthcare Platform">
-  <meta property="og:description" content="Everything you need to run your healthcare practice — patient management, video consultations, e-prescriptions, lab integration and more.">
+  <meta property="og:title" content="Hospital Features — Patient Management, Telemedicine & Lab Integration | Zeeshan Hospital">
+  <meta property="og:description" content="Discover the Zeeshan Hospital platform: patient management, video consultations, e-prescriptions, lab integration, and digital health records.">
   <meta property="og:image" content="https://zeeshan-hospital.vercel.app/assets/logo.png">
   <meta property="og:url" content="https://zeeshan-hospital.vercel.app/features.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Zeeshan Hospital">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Features — Zeeshan Hospital | Complete Healthcare Platform">
-  <meta name="twitter:description" content="Everything you need to run your healthcare practice — patient management, video consultations, e-prescriptions, lab integration.">
+  <meta name="twitter:title" content="Hospital Features — Zeeshan Hospital Lahore">
+  <meta name="twitter:description" content="Patient management, video consultations, e-prescriptions, lab integration — the complete Zeeshan Hospital platform.">
   <meta name="twitter:image" content="https://zeeshan-hospital.vercel.app/assets/logo.png">
   <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zeeshan-hospital.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Features", "item": "https://zeeshan-hospital.vercel.app/features.html" }
+    ]
+  }
+  </script>
+
   <style>
     /* Features page specific styles */
     .page-hero {
@@ -168,21 +180,22 @@
         <span style="font-weight:800;font-size:1.15rem;">Zeeshan Hospital</span>
       </a>
       <div class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="about.html">About</a>
+        <a href="consultancy.html">Medical Consultancy</a>
         <a href="features.html" class="active">Features</a>
         <a href="pricing.html">Pricing</a>
-        <a href="about.html">About</a>
-        <a href="index.html#contact">Contact</a>
         <div class="dropdown">
           <button class="btn btn-sm btn-outline" onclick="this.nextElementSibling.classList.toggle('active')">Portals &#9662;</button>
           <div class="dropdown-menu">
-            <a href="#" onclick="showAuth('patient')">&#129485; Patient Portal</a>
-            <a href="#" onclick="showAuth('doctor')">&#128137; Doctor Portal</a>
-            <a href="#" onclick="showAuth('pharmacy')">&#127974; Pharmacy Portal</a>
-            <a href="#" onclick="showAuth('lab')">&#128300; Lab Portal</a>
+            <a href="patient.html">&#129485; Patient Portal</a>
+            <a href="doctor.html">&#128137; Doctor Portal</a>
+            <a href="pharmacy.html">&#127974; Pharmacy Portal</a>
+            <a href="lab.html">&#128300; Lab Portal</a>
           </div>
         </div>
-        <a href="#" onclick="openDemoModal()" class="btn btn-sm btn-ghost">Book a Demo</a>
-        <a href="#" onclick="showAuth('patient')" class="btn btn-sm btn-primary">Get Started</a>
+        <a href="#" onclick="openDemoModal()" class="btn btn-sm btn-ghost">Book Appointment</a>
+        <a href="login.html" class="btn btn-sm btn-primary">Patient Portal →</a>
       </div>
       <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -304,28 +317,58 @@
   </section>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="footer" id="contact">
+  <footer class="footer" style="background:#0a1929;color:rgba(255,255,255,0.7);padding:80px 0 30px;">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo"><img src="assets/logo.png" alt="Zeeshan Hospital" style="height:32px;width:auto;"> Zeeshan Hospital</div>
-          <p>Complete digital healthcare ecosystem connecting patients, doctors, pharmacies, and testing facilities. Your health, our mission.</p>
-          <div class="footer-social">
-            <a href="#" aria-label="Twitter">&#120143;</a>
-            <a href="#" aria-label="LinkedIn">&#120156;</a>
-            <a href="#" aria-label="Facebook">&#120157;</a>
-            <a href="#" aria-label="Instagram">&#120146;</a>
+      <div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px;">
+        <div>
+          <div class="footer-logo" style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <img src="assets/logo.png" alt="Zeeshan Hospital" style="height:32px;width:auto;border-radius:8px;">
+            <span style="color:white;font-weight:800;font-size:1.1rem;">Zeeshan Hospital</span>
+          </div>
+          <p style="color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:20px;font-size:0.92rem;">
+            A JCI-accredited academic medical center providing world-class healthcare with compassion, innovation, and integrity since 2001.
+          </p>
+        </div>
+        <div>
+          <h4 style="color:white;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px;font-weight:700;">Consultancy</h4>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:0.88rem;">
+            <a href="consultancy.html" style="color:rgba(255,255,255,0.6);">Medical Consultancy</a>
+            <a href="consultancy.html" style="color:rgba(255,255,255,0.6);">Our Specialists</a>
+            <a href="#" onclick="openDemoModal()" style="color:rgba(255,255,255,0.6);">Book Appointment</a>
           </div>
         </div>
-        <div><h4>Product</h4><div class="footer-links"><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="#">Integrations</a><a href="#">API</a></div></div>
-        <div><h4>Company</h4><div class="footer-links"><a href="about.html">About</a><a href="#">Blog</a><a href="#">Careers</a><a href="#">Press</a></div></div>
-        <div><h4>Support</h4><div class="footer-links"><a href="#">Documentation</a><a href="index.html#contact">Contact</a><a href="#">Status</a><a href="#">Security</a></div></div>
-        <div><h4>Legal</h4><div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">HIPAA</a><a href="#">GDPR</a></div></div>
+        <div>
+          <h4 style="color:white;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px;font-weight:700;">Hospital</h4>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:0.88rem;">
+            <a href="about.html" style="color:rgba(255,255,255,0.6);">About Us</a>
+            <a href="features.html" style="color:rgba(255,255,255,0.6);">Features</a>
+            <a href="pricing.html" style="color:rgba(255,255,255,0.6);">Pricing</a>
+            <a href="patient.html" style="color:rgba(255,255,255,0.6);">Patient Portal</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="color:white;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px;font-weight:700;">Resources</h4>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:0.88rem;">
+            <a href="privacy-policy.html" style="color:rgba(255,255,255,0.6);">Privacy Policy</a>
+            <a href="terms-of-service.html" style="color:rgba(255,255,255,0.6);">Terms of Service</a>
+            <a href="login.html" style="color:rgba(255,255,255,0.6);">Patient Login</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="color:white;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px;font-weight:700;">Contact</h4>
+          <div style="font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.8;">
+            42 Hospital Boulevard<br>
+            Lahore, Pakistan 54000<br><br>
+            <strong style="color:white;">+92 42 111 222 333</strong><br>
+            care@zeeshanhospital.org
+          </div>
+        </div>
       </div>
-      <div class="footer-bottom">
-        <span>&copy; 2026 Zeeshan Hospital. All rights reserved. Made with &#10084;&#65039; for better healthcare.</span>
-        <div class="footer-bottom-links">
-          <a href="#" onclick="adminLogin()" style="font-size:0.72rem;opacity:0.4;">Admin</a>
+      <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;font-size:0.82rem;color:rgba(255,255,255,0.5);">
+        <span>&copy; 2026 Zeeshan Hospital. All rights reserved. &middot; JCI Accredited &middot; ISO 9001:2015</span>
+        <div style="display:flex;gap:24px;">
+          <a href="privacy-policy.html" style="color:rgba(255,255,255,0.5);">Privacy</a>
+          <a href="terms-of-service.html" style="color:rgba(255,255,255,0.5);">Terms</a>
         </div>
       </div>
     </div>

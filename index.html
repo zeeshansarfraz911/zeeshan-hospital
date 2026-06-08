@@ -3,45 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zeeshan Hospital — World-Class Healthcare, Reimagined for the Digital Age</title>
-  <meta name="description" content="Zeeshan Hospital is a JCI-accredited healthcare institution delivering world-class medical care through advanced technology, board-certified specialists, and patient-centered digital experiences.">
+  <title>Zeeshan Hospital — Best Hospital in Lahore | Medical Consultancy & Specialist Care</title>
+  <meta name="description" content="Zeeshan Hospital is Lahore's premier JCI-accredited hospital offering expert medical consultancy, specialist consultations, and advanced healthcare. 120+ board-certified doctors, 35+ specialties, 24/7 emergency care. Book online.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/logo.png">
   <link rel="apple-touch-icon" href="assets/logo.png">
-  <link rel="canonical" href="https://zeeshan-hospital.vercel.app/index.html">
+  <link rel="canonical" href="https://zeeshan-hospital.vercel.app/">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Zeeshan Hospital — World-Class Healthcare, Reimagined for the Digital Age">
-  <meta property="og:description" content="JCI-accredited healthcare institution delivering world-class medical care through advanced technology, board-certified specialists, and patient-centered digital experiences.">
+  <meta property="og:title" content="Zeeshan Hospital — Best Hospital in Lahore | Medical Consultancy & Specialist Care">
+  <meta property="og:description" content="Lahore's premier JCI-accredited hospital offering expert medical consultancy, specialist consultations, and advanced healthcare. 120+ board-certified doctors, 35+ specialties.">
   <meta property="og:image" content="https://zeeshan-hospital.vercel.app/assets/logo.png">
   <meta property="og:url" content="https://zeeshan-hospital.vercel.app/index.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Zeeshan Hospital">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Zeeshan Hospital — World-Class Healthcare, Reimagined">
-  <meta name="twitter:description" content="JCI-accredited healthcare institution delivering world-class medical care through advanced technology.">
+  <meta name="twitter:title" content="Zeeshan Hospital — Best Hospital in Lahore | Medical Consultancy">
+  <meta name="twitter:description" content="Lahore's premier JCI-accredited hospital offering expert medical consultancy, specialist consultations, and advanced healthcare. 120+ board-certified doctors.">
   <meta name="twitter:image" content="https://zeeshan-hospital.vercel.app/assets/logo.png">
   <meta name="theme-color" content="#0d4f4a">
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- Organization + Hospital Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Hospital",
+    "@id": "https://zeeshan-hospital.vercel.app/#hospital",
     "name": "Zeeshan Hospital",
+    "alternateName": "Zeeshan Hospital Lahore",
     "url": "https://zeeshan-hospital.vercel.app",
     "logo": "https://zeeshan-hospital.vercel.app/assets/logo.png",
-    "description": "JCI-accredited healthcare institution delivering world-class medical care through advanced technology, board-certified specialists, and patient-centered digital experiences.",
-    "medicalSpecialty": ["Cardiology", "Neurology", "Oncology", "Pediatrics", "Orthopedics", "Emergency Medicine"],
+    "image": "https://zeeshan-hospital.vercel.app/assets/logo.png",
+    "description": "Lahore's premier JCI-accredited hospital offering expert medical consultancy, specialist consultations, advanced diagnostics, robotic surgery, and 24/7 emergency care with 120+ board-certified doctors across 35+ specialties.",
+    "foundingDate": "2001",
+    "medicalSpecialty": [
+      "Cardiology", "Neurology", "Oncology", "Pediatrics", "Orthopedics",
+      "Internal Medicine", "Gastroenterology", "Pulmonology", "Endocrinology",
+      "Nephrology", "Rheumatology", "Dermatology", "Ophthalmology",
+      "ENT", "Urology", "Gynecology", "Psychiatry", "Emergency Medicine"
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "42 Hospital Boulevard",
       "addressLocality": "Lahore",
+      "addressRegion": "Punjab",
+      "postalCode": "54000",
       "addressCountry": "PK"
     },
     "telephone": "+92-42-111-222-333",
+    "email": "care@zeeshanhospital.org",
+    "priceRange": "PKR 1,500 - PKR 50,000",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "00:00", "closes": "23:59" }
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
@@ -52,6 +69,93 @@
       "https://facebook.com/ZeeshanHospital",
       "https://twitter.com/ZeeshanHospital",
       "https://linkedin.com/company/zeeshan-hospital"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Medical Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Medical Consultancy" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Specialist Consultation" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emergency Care" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Robotic Surgery" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnostic Imaging" } }
+      ]
+    }
+  }
+  </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zeeshan-hospital.vercel.app/" }
+    ]
+  }
+  </script>
+
+  <!-- WebSite Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Zeeshan Hospital",
+    "url": "https://zeeshan-hospital.vercel.app",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://zeeshan-hospital.vercel.app/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- FAQ Schema for AEO/GEO (AI search visibility) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Zeeshan Hospital the best hospital in Lahore?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zeeshan Hospital is consistently ranked among Lahore's top healthcare institutions. With JCI accreditation, 120+ board-certified specialists, 35+ medical specialties, advanced robotic surgery, and a 4.9/5 patient rating from 500,000+ patients, it is widely recognized as one of the best hospitals in Lahore."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I book a medical consultation at Zeeshan Hospital?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can book a medical consultation online through our website, call +92 42 111 222 333, or visit our Lahore hospital in person. Same-day and next-day appointments are available for most specialties. Our care coordinator will confirm your appointment within 24 hours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What medical specialties does Zeeshan Hospital offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zeeshan Hospital offers 35+ medical and surgical specialties including Cardiology, Neurology, Oncology, Pediatrics, Orthopedics, Internal Medicine, Gastroenterology, Pulmonology, Endocrinology, Nephrology, Dermatology, Ophthalmology, ENT, Urology, Gynecology, Psychiatry, and Emergency Medicine."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Zeeshan Hospital offer online/virtual consultations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Zeeshan Hospital provides secure, HIPAA-compliant video consultations with board-certified specialists. Virtual consultations are available 7 days a week, 8 AM to 10 PM. Digital prescriptions can be sent directly to your pharmacy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are Zeeshan Hospital's emergency services like?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zeeshan Hospital has a 24/7 emergency department equipped with advanced trauma care, cardiac emergency units, stroke units, and ICU facilities. Our average emergency response time is under 4 minutes."
+        }
+      }
     ]
   }
   </script>
@@ -372,13 +476,13 @@
         <span style="font-weight:800;font-size:1.25rem;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.02em;">Zeeshan Hospital</span>
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="#specialties" style="color:rgba(255,255,255,0.85);">Specialties</a>
-        <a href="#doctors" style="color:rgba(255,255,255,0.85);">Doctors</a>
-        <a href="#features-pro" style="color:rgba(255,255,255,0.85);">Patient Care</a>
-        <a href="#stories" style="color:rgba(255,255,255,0.85);">Stories</a>
-        <a href="#insights-section" style="color:rgba(255,255,255,0.85);">Insights</a>
+        <a href="/" style="color:rgba(255,255,255,0.85);">Home</a>
+        <a href="about.html" style="color:rgba(255,255,255,0.85);">About Us</a>
+        <a href="consultancy.html" style="color:rgba(255,255,255,0.85);">Medical Consultancy</a>
+        <a href="features.html" style="color:rgba(255,255,255,0.85);">Patient Care</a>
+        <a href="pricing.html" style="color:rgba(255,255,255,0.85);">Pricing</a>
         <a href="#" onclick="openDemoModal()" class="btn btn-sm btn-ghost" style="color:white;">Book Appointment</a>
-        <a href="#" onclick="showAuth('patient')" class="btn btn-sm" style="background:linear-gradient(135deg,#14b8a6,#0d9488);color:white;border:none;box-shadow:0 6px 20px rgba(20,184,166,0.4);">Patient Portal →</a>
+        <a href="login.html" class="btn btn-sm" style="background:linear-gradient(135deg,#14b8a6,#0d9488);color:white;border:none;box-shadow:0 6px 20px rgba(20,184,166,0.4);">Patient Portal →</a>
       </div>
       <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation" style="color:white;">
         <span style="background:white;"></span><span style="background:white;"></span><span style="background:white;"></span>
@@ -449,19 +553,19 @@
           JCI-Accredited · 25 Years of Excellence · 500K+ Patients
         </div>
         <h1>
-          World-class care,<br>
-          <em>reimagined</em> for the<br>
-          modern patient.
+          Best Hospital in Lahore —<br>
+          <em>World-Class</em> Medical<br>
+          Consultancy & Care
         </h1>
         <p class="lede">
-          Zeeshan Hospital brings together internationally trained specialists, cutting-edge technology, and a deeply human approach to deliver healthcare that's precise, personal, and always within reach.
+          Zeeshan Hospital is Lahore's premier healthcare destination — bringing together internationally trained specialists, cutting-edge technology, and deeply compassionate care. From expert medical consultations to advanced surgical treatment, we deliver healthcare that's precise, personal, and always within reach.
         </p>
         <div class="hero-cta-group">
           <a href="#" onclick="openDemoModal()" class="btn-hero-primary">
             Book an Appointment
             <span style="display:inline-block;transition:transform 0.3s;">→</span>
           </a>
-          <a href="#stories" class="btn-hero-ghost">
+          <a href="consultancy.html" class="btn-hero-ghost">
             <span class="play-icon-circle">▶</span>
             Watch Patient Stories
           </a>
@@ -591,7 +695,7 @@
             Each center combines leading specialists, advanced diagnostics, and personalized treatment plans to deliver outcomes you can trust.
           </p>
         </div>
-        <a href="#" style="color:var(--primary-2);font-weight:600;font-size:0.92rem;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;">View All Specialties →</a>
+        <a href="consultancy.html" style="color:var(--primary-2);font-weight:600;font-size:0.92rem;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;">View All Specialties →</a>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
@@ -825,7 +929,7 @@
       </div>
 
       <div style="text-align:center;margin-top:40px;">
-        <a href="#" class="btn btn-outline btn-lg" style="border-radius:100px;padding:14px 32px;">View All 120+ Specialists →</a>
+        <a href="consultancy.html" class="btn btn-outline btn-lg" style="border-radius:100px;padding:14px 32px;">View All 120+ Specialists →</a>
       </div>
     </div>
   </section>
@@ -944,7 +1048,7 @@
             Evidence-based insights from our specialists — to help you and your family live well, every day.
           </p>
         </div>
-        <a href="#" style="color:var(--primary-2);font-weight:600;font-size:0.92rem;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;">Read All Articles →</a>
+        <a href="features.html" style="color:var(--primary-2);font-weight:600;font-size:0.92rem;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;">Read All Articles →</a>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
@@ -1069,10 +1173,10 @@
         <div>
           <h4 style="color:white;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px;font-weight:700;">Care</h4>
           <div style="display:flex;flex-direction:column;gap:10px;font-size:0.88rem;">
-            <a href="#specialties" style="color:rgba(255,255,255,0.6);transition:color 0.3s;">Specialties</a>
-            <a href="#doctors" style="color:rgba(255,255,255,0.6);transition:color 0.3s;">Find a Doctor</a>
-            <a href="login.html" style="color:rgba(255,255,255,0.6);transition:color 0.3s;">Book Appointment</a>
-            <a href="patient.html" style="color:rgba(255,255,255,0.6);transition:color 0.3s;">Patient Portal</a>
+            <a href="consultancy.html" style="color:rgba(255,255,255,0.6);">Specialties</a>
+            <a href="consultancy.html" style="color:rgba(255,255,255,0.6);">Find a Doctor</a>
+            <a href="#" onclick="openDemoModal()" style="color:rgba(255,255,255,0.6);">Book Appointment</a>
+            <a href="patient.html" style="color:rgba(255,255,255,0.6);">Patient Portal</a>
           </div>
         </div>
         <div>
@@ -1080,17 +1184,17 @@
           <div style="display:flex;flex-direction:column;gap:10px;font-size:0.88rem;">
             <a href="about.html" style="color:rgba(255,255,255,0.6);">Our Mission</a>
             <a href="about.html" style="color:rgba(255,255,255,0.6);">Leadership</a>
-            <a href="#" style="color:rgba(255,255,255,0.6);">Careers</a>
-            <a href="#" style="color:rgba(255,255,255,0.6);">Press & Media</a>
+            <a href="consultancy.html" style="color:rgba(255,255,255,0.6);">Medical Consultancy</a>
+            <a href="features.html" style="color:rgba(255,255,255,0.6);">Patient Care</a>
           </div>
         </div>
         <div>
           <h4 style="color:white;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px;font-weight:700;">Resources</h4>
           <div style="display:flex;flex-direction:column;gap:10px;font-size:0.88rem;">
-            <a href="#insights-section" style="color:rgba(255,255,255,0.6);">Health Library</a>
-            <a href="#" style="color:rgba(255,255,255,0.6);">Clinical Trials</a>
-            <a href="#" style="color:rgba(255,255,255,0.6);">Research</a>
-            <a href="#" style="color:rgba(255,255,255,0.6);">Medical Education</a>
+            <a href="pricing.html" style="color:rgba(255,255,255,0.6);">Pricing</a>
+            <a href="about.html" style="color:rgba(255,255,255,0.6);">About Us</a>
+            <a href="consultancy.html" style="color:rgba(255,255,255,0.6);">Medical Consultancy</a>
+            <a href="login.html" style="color:rgba(255,255,255,0.6);">Patient Portal</a>
           </div>
         </div>
         <div>

@@ -1,10 +1,26 @@
 User-agent: *
 Allow: /
-Disallow: /admin.html
-Disallow: /doctor.html
-Disallow: /patient.html
-Disallow: /lab.html
-Disallow: /pharmacy.html
+Allow: /index.html
+Allow: /about.html
+Allow: /features.html
+Allow: /pricing.html
+Allow: /consultancy.html
+Allow: /medical-consultation-lahore.html
+Allow: /login.html
+Allow: /404.html
+Allow: /privacy-policy.html
+Allow: /terms-of-service.html
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+# Portal pages - allow indexing (they have login-gated content but SEO meta)
+Allow: /admin.html
+Allow: /doctor.html
+Allow: /patient.html
+Allow: /lab.html
+Allow: /pharmacy.html
+
 Disallow: /GUIDE.html
 
 Sitemap: https://zeeshan-hospital.vercel.app/sitemap.xml

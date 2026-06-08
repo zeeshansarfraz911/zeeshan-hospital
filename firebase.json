@@ -1,1 +1,22 @@
-{ "firestore": { "rules": "firestore.rules" } }
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      ".git/**",
+      ".gitignore",
+      ".opencode/**",
+      ".vercel/**",
+      "vercel.json",
+      "node_modules/**",
+      "*.md"
+    ],
+    "rewrites": [
+      { "source": "**", "destination": "/index.html" }
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules"
+  }
+}
