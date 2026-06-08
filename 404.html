@@ -57,5 +57,24 @@
     <p>The page you are looking for might have been moved, deleted, or never existed.</p>
     <a href="/" class="btn btn-primary btn-lg">Return Home</a>
   </div>
+
+  <!-- Page Loading Overlay -->
+  <div id="pageLoader" class="page-loader" style="display:none;">
+    <div class="page-loader-content">
+      <div class="page-loader-ring"></div>
+      <div class="page-loader-text">Zeeshan Hospital</div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function() {
+      var loader = document.getElementById('pageLoader');
+      if (loader) { loader.style.opacity = '0'; setTimeout(function() { loader.style.display = 'none'; }, 500); }
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      var loader = document.getElementById('pageLoader');
+      if (loader) loader.style.display = 'flex';
+    });
+  </script>
 </body>
 </html>

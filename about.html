@@ -156,11 +156,13 @@
     ]
   }
   </script>
-</head>
+
+  <script>window.va=window.va||function(){(va.q=va.q||[]).push(arguments)};</script>
+  <script defer src='https://va.vercel-analytics.com/script.js'></script></head>
 <body>
 
   <!-- ========== NAVBAR ========== -->
-  <nav class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" style="background:white;">
     <div class="container">
       <a href="/" class="nav-logo">
         <img src="assets/logo.png" alt="Zeeshan Hospital" style="height:36px;width:auto;">
@@ -312,7 +314,7 @@
             <a href="about.html" style="color:rgba(255,255,255,0.6);">About Us</a>
             <a href="features.html" style="color:rgba(255,255,255,0.6);">Features</a>
             <a href="pricing.html" style="color:rgba(255,255,255,0.6);">Pricing</a>
-            <a href="patient.html" style="color:rgba(255,255,255,0.6);">Patient Portal</a>
+            <a href="login.html" style="color:rgba(255,255,255,0.6);">Patient Portal</a>
           </div>
         </div>
         <div>
@@ -503,5 +505,43 @@
       });
     });
   </script>
+
+<!-- ========== PAGE LOADER ========== -->
+<div id="pageLoader" class="page-loader" style="display:none;">
+  <div class="page-loader-content">
+    <div class="page-loader-ring"></div>
+    <div class="page-loader-text">Zeeshan Hospital</div>
+  </div>
+</div>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+if (typeof gsap !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+  
+  window.addEventListener('load', function() {
+    var loader = document.getElementById('pageLoader');
+    if (loader) {
+      gsap.to(loader, { opacity: 0, duration: 0.5, delay: 0.3, onComplete: function() { loader.style.display = 'none'; } });
+    }
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    var loader = document.getElementById('pageLoader');
+    if (loader) loader.style.display = 'flex';
+  });
+
+  // Scroll reveal for cards
+  gsap.utils.toArray('.mv-card, .value-card, .team-card, .story-section').forEach(function(el, i) {
+    gsap.from(el, {
+      y: 40, opacity: 0, duration: 0.7, delay: (i % 6) * 0.08,
+      scrollTrigger: { trigger: el, start: 'top 88%' }
+    });
+  });
+}
+</script>
+
 </body>
 </html>
+

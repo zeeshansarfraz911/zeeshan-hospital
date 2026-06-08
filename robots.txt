@@ -5,22 +5,27 @@ Allow: /about.html
 Allow: /features.html
 Allow: /pricing.html
 Allow: /consultancy.html
-Allow: /medical-consultation-lahore.html
 Allow: /login.html
-Allow: /404.html
 Allow: /privacy-policy.html
 Allow: /terms-of-service.html
+Allow: /blog/
 Allow: /css/
 Allow: /js/
 Allow: /assets/
 
-# Portal pages - allow indexing (they have login-gated content but SEO meta)
+# Portal pages (login-gated but indexed for SEO)
 Allow: /admin.html
 Allow: /doctor.html
 Allow: /patient.html
 Allow: /lab.html
 Allow: /pharmacy.html
 
+# Block non-indexable
 Disallow: /GUIDE.html
+Disallow: /404.html
+Disallow: /seo-audit-report.html
+
+# Crawl delay for benign bots
+Crawl-delay: 10
 
 Sitemap: https://zeeshan-hospital.vercel.app/sitemap.xml

@@ -447,8 +447,32 @@
       .brand-stats { gap: 20px; }
       .brand-stat .num { font-size: 1.2rem; }
     }
+
+    /* Page Loader */
+    .page-loader {
+      position: fixed; inset: 0; z-index: 99999;
+      background: #0a1929;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .page-loader-content { text-align: center; }
+    .page-loader-ring {
+      width: 48px; height: 48px;
+      border: 3px solid rgba(20,184,166,0.15);
+      border-top-color: #14b8a6;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    .page-loader-text {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700; font-size: 1.1rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.05em;
+    }
   </style>
-</head>
+
+  <script>window.va=window.va||function(){(va.q=va.q||[]).push(arguments)};</script>
+  <script defer src='https://va.vercel-analytics.com/script.js'></script></head>
 <body>
 
   <!-- LEFT PANEL: Brand / Hospital Identity -->
@@ -537,7 +561,7 @@
       </form>
 
       <p class="register-link" style="margin-top:16px;">
-        Don't have an account? <a href="#" onclick="selectRole('patient');document.getElementById('loginEmail').focus();return false;">Register here</a>
+        New patient? <a href="#" onclick="handleGoogleSignIn();return false;" style="color:var(--primary);font-weight:600;">Sign up with Google</a> or <a href="#" onclick="selectRole('patient');document.getElementById('loginEmail').focus();return false;">register with email</a>
       </p>
 
       <p class="register-link" style="margin-top:8px;font-size:0.78rem;color:var(--text-lighter);">
@@ -773,5 +797,32 @@
         });
     }
   </script>
+
+  <!-- Page Loading Overlay -->
+  <div id="pageLoader" class="page-loader" style="display:none;">
+    <div class="page-loader-content">
+      <div class="page-loader-ring"></div>
+      <div class="page-loader-text">Zeeshan Hospital</div>
+    </div>
+  </div>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+  if (typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    window.addEventListener('load', function() {
+      var loader = document.getElementById('pageLoader');
+      if (loader) {
+        gsap.to(loader, { opacity: 0, duration: 0.5, delay: 0.3, onComplete: function() { loader.style.display = 'none'; } });
+      }
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      var loader = document.getElementById('pageLoader');
+      if (loader) loader.style.display = 'flex';
+    });
+  }
+  </script>
 </body>
 </html>
+
