@@ -1,12 +1,11 @@
 // ========== FIREBASE CONFIG ==========
 const firebaseConfig = {
-  apiKey: "AIzaSyAP-nqL2zYxo_s2e1QM68AuePRoCecxQCI",
+  apiKey: "AIzaSyCiUS1YCxP76FspEGQ8ixzAl6LLm4Y47OU",
   authDomain: "zeeshan-hospital-a2121.firebaseapp.com",
   projectId: "zeeshan-hospital-a2121",
   storageBucket: "zeeshan-hospital-a2121.firebasestorage.app",
-  messagingSenderId: "883229651688",
-  appId: "1:883229651688:web:c0f489bfa83bd424e44f5d",
-  measurementId: "G-5CB2RGW03T"
+  messagingSenderId: "884462837919",
+  appId: "1:884462837919:web:366758a56019de64d3c2aa"
 };
 
 firebase.initializeApp(firebaseConfig);
