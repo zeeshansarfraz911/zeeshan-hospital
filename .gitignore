@@ -5,3 +5,5 @@ backend/data.json
 .DS_Store
 
 .vercel
+.agents/
+skills-lock.json
